@@ -1,0 +1,53 @@
+<!doctype html><html lang="zh-Hant"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Google 地圖時間軸｜手機自動化教學</title><style>
+*{box-sizing:border-box}body{margin:0;background:#f5f3ed;color:#192d2b;font:17px/1.75 'Noto Sans TC','Microsoft JhengHei',sans-serif}main,header>div{max-width:790px;margin:auto;padding:28px 21px}header{background:#143e38;color:#fff}header>div{padding-top:55px;padding-bottom:42px}h1{font-size:clamp(31px,6vw,54px);line-height:1.2;margin:12px 0}header p{color:#dcece6}small{letter-spacing:.06em;font-weight:bold;color:#a9e1c6}nav{display:flex;gap:9px;flex-wrap:wrap}nav a,button{font:inherit;font-weight:bold;padding:7px 13px;border-radius:7px}nav a{color:white;border:1px solid #78938b;text-decoration:none}section{margin:0 0 25px;background:#fff;border-radius:16px;padding:clamp(18px,4vw,33px)}h2{font-size:25px;margin:0 0 12px}h3{font-size:19px;color:#126654}li{margin:.5em 0}ol{padding-left:1.6em}pre{max-height:390px;overflow:auto;background:#102f2b;color:#ecfff3;padding:13px;font:14px/1.6 monospace;border-radius:8px}button{background:#13664e;color:white;border:0;cursor:pointer}aside{border-left:4px solid #c48939;padding:8px 13px;background:#fff7e8}a{color:#096450}summary{cursor:pointer;font-weight:bold}footer{padding:12px 0 40px}textarea{width:100%;height:12em}p{margin:.6em 0}</style>
+<header><div><small>iQOO 15 陸版 · OriginOS · V2505A</small><h1>一鍵恢復 Google 地圖時間軸</h1><p>用 MacroDroid 搭配 Shizuku，讓地圖在 640 dp 下啟動，再恢復原本的畫面大小。先設桌面捷徑，測通後再加每日排程。</p><nav><a href="#setup">首次設定</a><a href="#one">桌面一鍵</a><a href="#daily">每日定時</a><a href="#fix">還原與排錯</a></nav></div></header><main>
+<section id="setup"><h2>先確認手機條件</h2><p>這份腳本按實測手機的數值撰寫：陸版 iQOO 15、主使用者、有效解析度寬 1440 像素、原廠密度 640 dpi、日常最小寬度 360 dp。其他機型請勿照抄密度值。</p><aside><b>640 dp 和 640 dpi 指的是不同數值。</b>這支手機把密度暫改為 360 dpi，最小寬度才會變成 640 dp。開始前到開發人員選項，截圖記下自己的「最小寬度」。</aside>
+<h3>在手機啟動 Shizuku</h3><ol><li>安裝 MacroDroid 和 Shizuku，連上 Wi-Fi，開啟開發人員選項中的「無線偵錯」。</li><li>首次使用時，從 Shizuku 點「配對」，再到無線偵錯點「使用配對碼配對裝置」，把配對碼輸入 Shizuku 的通知。</li><li>回 Shizuku 點「啟動」，等首頁顯示服務正在執行。首次透過 MacroDroid 執行時，允許它使用 Shizuku。</li></ol><p><b>重開機後：</b>免 Root 的無線偵錯模式需要再次啟動 Shizuku。一般只需首次配對；先確認服務運作，再點捷徑或等排程。</p></section>
+<section id="one"><h2>建立桌面一鍵捷徑</h2><ol><li>開 MacroDroid →「新增巨集」，命名為「恢復 Google 時間軸」。</li><li>點「觸發器」的 ＋，搜尋「捷徑」或 <b>Shortcut Launched</b>，選「捷徑啟動」。</li><li>點「動作」的 ＋，用放大鏡搜尋英文 <b>Shell Script</b>。這個項目在「動作」裡；選取後，將執行方式設為 <b>Shizuku</b>。如果看不到這個選項，先更新 MacroDroid。</li><li>把下方整段貼進腳本欄，確認並儲存巨集。直接貼手機 Shell 語法，不用加 PowerShell 或 <code>adb shell</code>。</li><li>長按手機桌面空白處 →「小工具／捷徑」→ MacroDroid → 選擇巨集捷徑 →「恢復 Google 時間軸」。桌面名稱依啟動器而異；若建立觸發器時已出現「加到主畫面」，可直接加入。</li></ol>
+<button id="copy">複製手機指令</button> <span id="msg" role="status"></span><pre id="code"># iQOO 15 陸版 V2505A，直式、日常最小寬度 360 dp
+set -eu
+stop() { echo &quot;$*&quot; &gt;&amp;2; exit 1; }
+[ &quot;$(id -u)&quot; = 2000 ] || stop &quot;請將執行方式選為 Shizuku&quot;
+[ &quot;$(getprop ro.product.model)&quot; = V2505A ] || stop &quot;此範例只供 V2505A&quot;
+[ &quot;$(am get-current-user)&quot; = 0 ] || stop &quot;請切回手機主使用者&quot;
+case &quot;$(am get-config)&quot; in
+  *-sw360dp-*) ;;
+  *) stop &quot;請先確認日常最小寬度為 360 dp&quot; ;;
+esac
+size=$(wm size | tail -n 1 | awk &#x27;{print $NF}&#x27;)
+[ &quot;${size%x*}&quot; = 1440 ] || stop &quot;目前解析度不符合範例&quot;
+density=$(wm density)
+physical=$(echo &quot;$density&quot; | sed -n &#x27;s/^Physical density: //p&#x27;)
+original=$(echo &quot;$density&quot; | sed -n &#x27;s/^Override density: //p&#x27;)
+[ &quot;$physical&quot; = 640 ] || stop &quot;此機的原廠密度不同&quot;
+case &quot;$original&quot; in &#x27;&#x27;|640) ;; *) stop &quot;日常顯示密度不同&quot;;; esac
+
+lock=/data/local/tmp/iqoo15-timeline-run
+mkdir &quot;$lock&quot; 2&gt;/dev/null || stop &quot;已有執行紀錄，請看網頁的還原說明&quot;
+changed=0
+finish() {
+  if [ &quot;$changed&quot; = 1 ]; then
+    wm density &quot;${original:-reset}&quot; || { echo &quot;還原失敗，請手動恢復 360 dp&quot; &gt;&amp;2; return 1; }
+  fi
+  rmdir &quot;$lock&quot;
+}
+trap finish EXIT
+trap &#x27;exit 1&#x27; HUP INT TERM
+maps=com.google.android.apps.maps
+service=com.google.android.gms
+activity=$(cmd package resolve-activity --brief --user 0 -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -p &quot;$maps&quot; | tail -n 1)
+case &quot;$activity&quot; in &quot;$maps&quot;/*) ;; *) stop &quot;找不到 Google 地圖&quot;;; esac
+changed=1
+wm density 360
+sleep 2
+case &quot;$(am get-config)&quot; in *-sw640dp-*) ;; *) stop &quot;未切到 640 dp&quot;;; esac
+am force-stop --user 0 &quot;$maps&quot;
+am force-stop --user 0 &quot;$service&quot;
+am start -W --user 0 -n &quot;$activity&quot;
+sleep 6
+</pre>
+<h3>第一次按下捷徑</h3><p>先解除鎖定、停在桌面，並結束正在進行的導航。腳本會暫時縮小介面，依序強制停止 Google 地圖、Google Play 服務，再開啟地圖。等畫面恢復原大小後，點帳號頭像 →「你的時間軸」。回到開發人員選項確認最小寬度已回到 360 dp。</p><p>想驗證自動記錄，正常帶手機出門後，隔天選昨天的日期，確認實際停留的地點有出現。</p></section>
+<section id="daily"><h2>在同一個巨集加入每日排程</h2><ol><li>編輯「恢復 Google 時間軸」，在「觸發器」再按 ＋，搜尋「日期／時間」或 <b>Day/Time Trigger</b>。</li><li>勾選週一到週日，選自己通常已解鎖、也沒有導航的時間，例如每天 08:30。兩個觸發器採「任一符合」即可，共用原來的腳本。</li><li>在「限制條件」加入「裝置已解鎖」或對應的 Device Locked/Unlocked 條件，選已解鎖。儲存並啟用巨集。</li><li>首次測試可設成兩分鐘後，保持手機解鎖。確認地圖啟動、畫面還原，再改回日常時間。</li></ol><aside>時間到了若手機鎖定，這次排程會略過。解鎖後可點桌面捷徑補跑。地圖原本正常時，只留捷徑即可，避免每天中斷正在使用的 Google 服務。</aside></section>
+<section id="fix"><h2>沒反應，或畫面沒有還原？</h2><details open><summary>捷徑沒動作</summary><p>看 Shizuku 首頁是否顯示執行中，再到「已授權應用程式」確認 MacroDroid 已獲允許。回巨集檢查 Shell Script 的執行方式，並看 MacroDroid 系統日誌。若要單獨驗證權限，可在測試動作執行 <code>id -u</code> 並查看輸出，無線偵錯模式應是 2000。</p></details><details><summary>桌面可用，定時沒有執行</summary><p>在巨集的系統日誌查該時間是否觸發、是否被鎖定條件略過。若完全沒有觸發，確認巨集已啟用、日期時間正確，再查看手機對 MacroDroid 的背景執行限制。</p></details><details><summary>畫面卡在 640 dp，或提示已有執行紀錄</summary><p>腳本會在正常結束或一般錯誤時還原；強制結束程序或突然重開機仍可能中斷。先等腳本停止，在「開發人員選項 → 最小寬度」填回截圖中的原值（本例 360 dp）。確認沒有其他巨集正在執行後，若仍提示已有執行紀錄，在 Shizuku 模式的 Shell Script 單獨執行 <code>rmdir /data/local/tmp/iqoo15-timeline-run</code>，再點捷徑。</p></details><details><summary>畫面已還原，但仍無法使用時間軸</summary><p>先確認本機用手動 640 dp 流程能開啟時間軸。這份巨集重現開啟地圖的流程，各系統版本、啟動耗時及背景記錄結果仍須實機驗證；備份和造訪記錄要另外確認。</p></details></section>
+<footer><b>參考與下載</b><br><a href="https://shizuku.rikka.app/zh-hant/guide/setup/">Shizuku 繁中使用手冊</a>　<a href="https://play.google.com/store/apps/details?id=com.arlosoft.macrodroid">MacroDroid</a>　<a href="https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api">Shizuku</a></footer></main>
+<script>document.querySelector('#copy').onclick=async()=>{const c=document.querySelector('#code'), m=document.querySelector('#msg');try{await navigator.clipboard.writeText(c.textContent);m.textContent='已複製，可貼入 MacroDroid'}catch(e){const r=document.createRange();r.selectNodeContents(c);getSelection().removeAllRanges();getSelection().addRange(r);m.textContent=document.execCommand('copy')?'已複製':'請長按選取並複製指令'}}</script></html>
