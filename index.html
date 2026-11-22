@@ -1,6 +1,135 @@
-<!doctype html><html lang="zh-Hant"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>時間軸助手｜下載與使用教學</title><style>*{box-sizing:border-box}body{margin:0;color:#163430;background:#f8f7f0;font:17px/1.8 "Noto Sans TC",system-ui,sans-serif}main,header>div{max-width:760px;margin:auto;padding:32px 22px}header{background:#143e39;color:white;border-bottom:6px solid #a2d6ae}header>div{padding-block:46px}h1{font-size:clamp(34px,7vw,58px);line-height:1.15;margin:.25em 0}header p{color:#dfede4}small{color:#b7e5cc}a{color:#175743}.cta{display:inline-block;background:#c0f3d0;color:#143e33;font-weight:bold;text-decoration:none;padding:11px 22px;border-radius:9px}section{padding:8px 0 22px;border-bottom:1px solid #ced8d0}h2{font-size:24px}li{margin:.6em 0}ol{padding-left:1.6em}</style>
-<header><div><small>Android · v0.12</small><h1>時間軸助手</h1><p>陸版手機的 Google 地圖顯示「無法在這類裝置上開啟時間軸」？在 iQOO 15 上實測的做法是暫時調到 640 dp，強制停止地圖與 Google Play 服務，再恢復日常畫面大小。助手可在手機上自動完成這段流程。</p><a class="cta" href="Timeline-NoPair-0.12.apk" download>下載 Android APK ↓</a></div></header>
-<main><section><h2>首次安裝與設定</h2><ol><li>用手機下載並安裝 APK。若系統詢問是否允許此來源安裝，確認來源後再繼續。</li><li>在設定找到「開發人員選項 → 最小寬度」，先截圖記下目前數字。實測的 iQOO 15 是 360 dp，其他手機請用自己的原值。</li><li>打開助手，點「記下我的原始寬度」，核對並保存。點「開啟無障礙設定」，選時間軸助手並啟用。助手會使用此權限操作系統設定畫面。</li></ol></section>
-<section><h2>先跑一次，確認寬度還原</h2><ol><li>先結束導航，保持手機亮屏並解鎖，按「立即測試」。畫面會暫時縮小，等助手依序處理兩個應用程式。</li><li>看到「已完成停止流程，畫面已還原至原始寬度」後，照平常方式打開 Google 地圖 → 右上角頭像 →「你的時間軸」。全程不用重開機。</li><li>下次實際外出，再到「天」分頁看看是否新增了當天的造訪紀錄。能查看時間軸和能持續記錄行程，需分別確認。</li></ol></section>
-<section><h2>每日定時與開機執行</h2><p>點「每日執行時間」選擇時間，再勾「每日自動執行」。想先測試，可以設在兩分鐘後，回桌面保持亮屏與解鎖。測完再改成平常方便、沒有使用導航的時段。</p><p>如果到點時手機鎖定或熄屏，助手會等亮屏解鎖後再嘗試。請保持無障礙服務開啟。若也想在重開機後執行，先完成一次「立即測試」，再另勾「每次開機解鎖後自動執行」。</p></section>
-<section><h2>遇到問題</h2><details><summary>畫面還很小，怎麼還原？</summary><p>等流程停止後，點助手的「僅還原畫面大小」。若仍未恢復，回到開發人員選項，把最小寬度改回自己記下的原值。</p></details><details><summary>無障礙服務顯示「受限制的設定」？</summary><p>依手機提示進入助手的應用程式資訊，在「更多」內允許受限制的設定，再回無障礙頁開啟。若手機仍拒絕授權，先停止測試。</p></details><details><summary>所有陸版手機都能使用嗎？</summary><p>不同品牌的設定頁與背景執行限制有差異。iQOO 15 已實測寬度還原流程成功，其他機型請先手動測試一次。助手無法補回之前沒有記錄的行程。</p></details></section><p><a href="Timeline-MacroDroid-Guide.html">另一種做法：MacroDroid 與 Shizuku 教學</a></p></main></html>
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>時間軸助手｜下載與使用教學</title>
+<style>
+  *{box-sizing:border-box}
+  :root{--bg:#f6f8f6;--ink:#15332e;--brand:#143e39;--brand2:#1c5a4f;--mint:#bff0ce;--line:#d4ded6;--soft:#eef3ee;--warn:#8a5a00;--warnbg:#fff6e2}
+  body{margin:0;color:var(--ink);background:var(--bg);font:16px/1.75 "Noto Sans TC",system-ui,-apple-system,sans-serif}
+  a{color:var(--brand2)}
+  header{background:var(--brand);color:#fff;border-bottom:6px solid var(--mint)}
+  header .wrap{padding:44px 22px}
+  .wrap{max-width:780px;margin:auto;padding:26px 22px}
+  .tag{display:inline-block;font-size:13px;letter-spacing:.08em;color:#bdeccc;border:1px solid #2d6a5d;border-radius:999px;padding:3px 12px;margin-bottom:14px}
+  h1{font-size:clamp(32px,7vw,52px);line-height:1.12;margin:.1em 0 .3em}
+  header p{color:#dcebe0;margin:.4em 0 1.4em}
+  .cta{display:inline-block;background:var(--mint);color:#0f2f29;font-weight:700;text-decoration:none;padding:13px 26px;border-radius:10px;font-size:18px}
+  .cta:hover{background:#a6e6ba}
+  .cta small{display:block;font-weight:400;font-size:12px;color:#2b5a4f}
+  section{border-bottom:1px solid var(--line);padding:10px 0 26px}
+  h2{font-size:22px;margin:1.3em 0 .4em;display:flex;align-items:center;gap:10px}
+  h2 .n{flex:0 0 auto;width:30px;height:30px;border-radius:50%;background:var(--brand);color:#fff;font-size:15px;display:grid;place-items:center}
+  h3{font-size:17px;margin:1.2em 0 .2em}
+  ol,ul{padding-left:1.4em}
+  li{margin:.5em 0}
+  code{background:var(--soft);padding:2px 7px;border-radius:5px;font-size:14px;border:1px solid var(--line)}
+  .btn{display:inline-block;background:var(--soft);border:1px solid var(--line);border-radius:7px;padding:1px 9px;font-size:14px;font-weight:600;white-space:nowrap}
+  .note{background:var(--warnbg);border:1px solid #f0d99a;border-left:4px solid #e3a93b;border-radius:8px;padding:14px 16px;margin:16px 0;font-size:15px}
+  .note b{color:var(--warn)}
+  .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:6px 20px;margin:14px 0}
+  details{border-top:1px solid var(--line);padding:4px 0}
+  details:first-of-type{border-top:0}
+  summary{cursor:pointer;font-weight:600;padding:10px 0}
+  footer{color:#5a6b63;font-size:14px;text-align:center;padding:30px 22px 50px}
+  .alt{display:block;margin-top:18px;padding:14px 18px;background:var(--soft);border:1px solid var(--line);border-radius:10px;text-decoration:none;font-weight:600}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <span class="tag">Android · v0.12 · 繁體中文</span>
+    <h1>時間軸助手</h1>
+    <p>手機的 Google 地圖顯示「無法在這類裝置上開啟時間軸」？這支小工具會暫時把螢幕調成平板尺寸（640 dp）、強制停止地圖與 Google Play 服務，讓地圖重新判定為「支援」，再把畫面還原回原本大小。全程在手機上自動完成，不用電腦、不用 root。</p>
+    <a class="cta" href="Timeline-NoPair-0.12.apk" download>下載 Android APK ↓<small>Timeline-NoPair-0.12.apk</small></a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="note">
+    <b>先了解一件事：效果不是永久的。</b>Google Play 服務大約每天會重新檢查一次裝置資格，一看到你是一般手機就會把時間軸再關掉。所以這支工具的設計是「<b>需要時再跑一次</b>」，或用內建的<b>每日定時／開機自動執行</b>讓它每天自己重做，而不是設定一次就永久有效。不 root 的前提下，這是目前能做到的方式。
+  </div>
+
+  <section>
+    <h2><span class="n">1</span>首次安裝與設定</h2>
+    <ol>
+      <li>用手機下載並安裝上面的 APK。若系統提示來源不明，確認後允許安裝。</li>
+      <li>到「設定 → 開發人員選項 → 最小寬度」，<b>先截圖記下目前的數字</b>（例如 iQOO 15 是 <code>360</code>）。這是你的日常原值，之後要靠它還原。</li>
+      <li>打開助手，點 <span class="btn">記下我的原始寬度</span>，填入剛才看到的數字並保存。</li>
+      <li>點 <span class="btn">開啟無障礙設定</span>，找到「時間軸助手」並啟用。助手需要這個權限才能自動操作設定畫面。</li>
+      <li>把 Google 地圖圖示放到桌面首頁（資料夾外），備援流程會用到。</li>
+    </ol>
+    <div class="note">
+      <b>iQOO／小米等系統：無障礙一開就被關掉？</b>這些系統會限制「非商店安裝」App 的無障礙權限，顯示「受限制的設定」。請到助手的<b>應用程式資訊 → 右上角「⋮」 → 允許受限制的設定</b>，再回無障礙頁開啟。開啟後<b>不要再去設定頁切換那個開關</b>，以免又被系統還原。
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="n">2</span>自動模式：按一下就好</h2>
+    <p>平常保持螢幕正常大小，確認無障礙服務已開啟、原始寬度已記下，然後：</p>
+    <ol>
+      <li>先結束導航，保持手機亮屏並解鎖。</li>
+      <li>按 <span class="btn">立即測試</span>。畫面會暫時縮小——助手正在調到 640 dp，並依序強制停止 Google 地圖與 Google Play 服務。</li>
+      <li>看到狀態顯示已完成、畫面還原回原本大小後，<b>自己打開 Google 地圖 → 右上角頭像 → 你的時間軸</b>。這次應該就能看到了。</li>
+    </ol>
+    <p>整段過程不用重開機。若某一步卡住，助手最下方會顯示「執行中：…」是哪一步，照下方的疑難排解處理。</p>
+  </section>
+
+  <section>
+    <h2><span class="n">3</span>讓它每天自動重做（解決每天失效）</h2>
+    <p>因為時間軸大約每天會被 Google 重新關掉，與其每天手動按，不如讓助手自己跑：</p>
+    <ul>
+      <li>點 <span class="btn">每日執行時間</span> 選一個你方便、通常不會在導航的時段（例如半夜）。</li>
+      <li>勾選 <span class="btn">每日自動執行</span>。到點時若手機是鎖定或熄屏，助手會等你解鎖亮屏後再補跑。</li>
+      <li>想連重開機後也自動執行：先讓 <span class="btn">立即測試</span> 成功跑完一次，再勾 <span class="btn">每次開機解鎖後自動執行</span>。</li>
+    </ul>
+    <p>這樣雖然不是真正「永久」，但你平常幾乎不會再碰到時間軸被關掉的狀態。</p>
+  </section>
+
+  <section>
+    <h2><span class="n">4</span>手動模式（自動失敗時的備案）</h2>
+    <p>如果自動流程在你的手機上被系統擋住，可以用上方的 1～4 步自己操作，助手只負責帶你到正確的頁面：</p>
+    <ol>
+      <li><span class="btn">1　調整最小寬度為 640 dp</span>：到開發人員選項把最小寬度改成 640。</li>
+      <li><span class="btn">2　開啟 Google 地圖資訊</span>：在這頁點「強制停止」並確認。</li>
+      <li><span class="btn">3　開啟 Google Play 服務資訊</span>：同樣點「強制停止」並確認。</li>
+      <li>打開 Google 地圖 →「你的時間軸」，確認能看到。</li>
+      <li><span class="btn">4　開啟設定，還原我的寬度</span>：把最小寬度改回你記下的原值。</li>
+    </ol>
+    <p>結束後若畫面還是小的，點 <span class="btn">僅還原畫面大小</span>，或自己到開發人員選項改回原值。</p>
+  </section>
+
+  <section>
+    <h2><span class="n">?</span>疑難排解</h2>
+    <div class="card">
+      <details>
+        <summary>畫面還很小，怎麼還原？</summary>
+        <p>先點助手的 <span class="btn">僅還原畫面大小</span>。若仍沒恢復，到「開發人員選項 → 最小寬度」手動改回你一開始記下的原值。</p>
+      </details>
+      <details>
+        <summary>無障礙服務一直被關掉／顯示「受限制的設定」</summary>
+        <p>這是 iQOO、小米等系統對非商店 App 的限制。到助手的應用程式資訊頁，右上角「⋮」選「允許受限制的設定」，再回無障礙頁開啟。開好之後不要再去設定頁手動切換那個開關。</p>
+      </details>
+      <details>
+        <summary>明天時間軸又不見了？</summary>
+        <p>這是正常的——Google 每天會重新檢查裝置資格。再按一次 <span class="btn">立即測試</span> 即可，或用上面的「每日自動執行」讓它每天自己重做。</p>
+      </details>
+      <details>
+        <summary>所有手機都能用嗎？</summary>
+        <p>各品牌的設定頁與背景限制不同。iQOO 15 已實測可行，其他機型建議先手動測一次。助手無法補回先前沒有記錄到的行程。</p>
+      </details>
+    </div>
+    <a class="alt" href="Timeline-MacroDroid-Guide.html">另一種做法：MacroDroid 與 Shizuku 教學 →</a>
+  </section>
+
+</main>
+
+<footer>
+  時間軸助手 v0.12 · 本工具僅協助在自己的裝置上存取自己的 Google 地圖時間軸
+</footer>
+
+</body>
+</html>
