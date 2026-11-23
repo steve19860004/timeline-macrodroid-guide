@@ -42,15 +42,20 @@
 
 <header>
   <div class="wrap">
-    <span class="tag">Android · v0.19 · 繁體中文</span>
+    <span class="tag">Android · v0.25 · 繁體中文</span>
     <h1>時間軸助手</h1>
     <p>手機的 Google 地圖顯示「無法在這類裝置上開啟時間軸」？這支小工具會暫時把螢幕調成平板尺寸（640 dp）、強制停止地圖與 Google Play 服務，讓地圖重新判定為「支援」，再把畫面還原回原本大小。全程在手機上自動完成，不用電腦、不用 root。</p>
-    <a class="cta" href="Timeline-NoPair-0.19.apk" download>下載 Android APK ↓<small>Timeline-NoPair-0.19.apk</small></a>
+    <a class="cta" href="Timeline-NoPair-0.25.apk" download>下載 Android APK ↓<small>Timeline-NoPair-0.25.apk</small></a>
     <p class="side">小米／紅米（HyperOS）用戶請改用 <a href="xiaomi.html">小米版教學與下載 →</a></p>
   </div>
 </header>
 
 <main class="wrap">
+
+  <div class="note">
+    <b>0.25 新功能：跑完自動離開設定頁。</b>開機或每日自動執行跑完後，會自動回到桌面；手動按 <span class="btn">開始自動測試</span> 跑完，會回到助手畫面顯示結果。<br>
+    <b>從 0.19 或更早版本更新：</b>請先<b>解除安裝舊版</b>再安裝 0.25（簽章不同，無法直接覆蓋）。裝好後重新 <span class="btn">記下我的原始寬度</span>、開啟無障礙，並重新勾選每日／開機自動執行。
+  </div>
 
   <div class="note">
     <b>先了解一件事：效果不是永久的。</b>Google Play 服務大約每天會重新檢查一次裝置資格，一看到你是一般手機就會把時間軸再關掉。所以這支工具的設計是「<b>需要時再跑一次</b>」，或用內建的<b>每日定時／開機自動執行</b>讓它每天自己重做，而不是設定一次就永久有效。不 root 的前提下，這是目前能做到的方式。
@@ -76,7 +81,7 @@
     <ol>
       <li>先結束導航，保持手機亮屏並解鎖。</li>
       <li>按 <span class="btn">開始自動測試</span>。畫面會暫時縮小——助手正在調到 640 dp，並依序強制停止 Google 地圖與 Google Play 服務。</li>
-      <li>看到狀態顯示已完成、畫面還原回原本大小後，<b>自己打開 Google 地圖 → 右上角頭像 → 你的時間軸</b>。這次應該就能看到了。</li>
+      <li>跑完後助手會自動回到自己的畫面。看到狀態顯示已完成、畫面還原回原本大小後，<b>自己打開 Google 地圖 → 右上角頭像 → 你的時間軸</b>。這次應該就能看到了。</li>
     </ol>
     <p>整段過程不用重開機。若某一步卡住，助手最下方會顯示「執行中：…」是哪一步，照下方的疑難排解處理。</p>
   </section>
@@ -86,7 +91,7 @@
     <p>因為時間軸大約每天會被 Google 重新關掉，與其每天手動按，不如讓助手自己跑：</p>
     <ul>
       <li>點 <span class="btn">每日執行時間</span> 選一個你方便、通常不會在導航的時段（例如半夜）。</li>
-      <li>勾選 <span class="btn">每日自動執行</span>。到點時若手機是鎖定或熄屏，助手會等你解鎖亮屏後再補跑。</li>
+      <li>勾選 <span class="btn">每日自動執行</span>。到點時若手機是鎖定或熄屏，助手會等你解鎖亮屏後再補跑。自動執行跑完會直接回到桌面。</li>
       <li>想連重開機後也自動執行：先讓 <span class="btn">開始自動測試</span> 成功跑完一次，再勾 <span class="btn">每次開機解鎖後自動執行</span>。</li>
     </ul>
     <p>這樣雖然不是真正「永久」，但你平常幾乎不會再碰到時間軸被關掉的狀態。</p>
@@ -143,7 +148,7 @@
 </main>
 
 <footer>
-  時間軸助手 v0.19 · 本工具僅協助在自己的裝置上存取自己的 Google 地圖時間軸
+  時間軸助手 v0.25 · 本工具僅協助在自己的裝置上存取自己的 Google 地圖時間軸
 </footer>
 
 </body>
