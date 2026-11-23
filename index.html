@@ -42,10 +42,10 @@
 
 <header>
   <div class="wrap">
-    <span class="tag">Android · v0.12 · 繁體中文</span>
+    <span class="tag">Android · v0.19 · 繁體中文</span>
     <h1>時間軸助手</h1>
     <p>手機的 Google 地圖顯示「無法在這類裝置上開啟時間軸」？這支小工具會暫時把螢幕調成平板尺寸（640 dp）、強制停止地圖與 Google Play 服務，讓地圖重新判定為「支援」，再把畫面還原回原本大小。全程在手機上自動完成，不用電腦、不用 root。</p>
-    <a class="cta" href="Timeline-NoPair-0.12.apk" download>下載 Android APK ↓<small>Timeline-NoPair-0.12.apk</small></a>
+    <a class="cta" href="Timeline-NoPair-0.19.apk" download>下載 Android APK ↓<small>Timeline-NoPair-0.19.apk</small></a>
     <p class="side">小米／紅米（HyperOS）用戶請改用 <a href="xiaomi.html">小米版教學與下載 →</a></p>
   </div>
 </header>
@@ -75,7 +75,7 @@
     <p>平常保持螢幕正常大小，確認無障礙服務已開啟、原始寬度已記下，然後：</p>
     <ol>
       <li>先結束導航，保持手機亮屏並解鎖。</li>
-      <li>按 <span class="btn">立即測試</span>。畫面會暫時縮小——助手正在調到 640 dp，並依序強制停止 Google 地圖與 Google Play 服務。</li>
+      <li>按 <span class="btn">開始自動測試</span>。畫面會暫時縮小——助手正在調到 640 dp，並依序強制停止 Google 地圖與 Google Play 服務。</li>
       <li>看到狀態顯示已完成、畫面還原回原本大小後，<b>自己打開 Google 地圖 → 右上角頭像 → 你的時間軸</b>。這次應該就能看到了。</li>
     </ol>
     <p>整段過程不用重開機。若某一步卡住，助手最下方會顯示「執行中：…」是哪一步，照下方的疑難排解處理。</p>
@@ -87,7 +87,7 @@
     <ul>
       <li>點 <span class="btn">每日執行時間</span> 選一個你方便、通常不會在導航的時段（例如半夜）。</li>
       <li>勾選 <span class="btn">每日自動執行</span>。到點時若手機是鎖定或熄屏，助手會等你解鎖亮屏後再補跑。</li>
-      <li>想連重開機後也自動執行：先讓 <span class="btn">立即測試</span> 成功跑完一次，再勾 <span class="btn">每次開機解鎖後自動執行</span>。</li>
+      <li>想連重開機後也自動執行：先讓 <span class="btn">開始自動測試</span> 成功跑完一次，再勾 <span class="btn">每次開機解鎖後自動執行</span>。</li>
     </ul>
     <p>這樣雖然不是真正「永久」，但你平常幾乎不會再碰到時間軸被關掉的狀態。</p>
   </section>
@@ -96,7 +96,7 @@
     <h2><span class="n">4</span>手動模式（自動失敗時的備案）</h2>
     <p>如果自動流程在你的手機上被系統擋住，可以用上方的 1～4 步自己操作，助手只負責帶你到正確的頁面：</p>
     <ol>
-      <li><span class="btn">1　調整最小寬度為 640 dp</span>：到開發人員選項把最小寬度改成 640。</li>
+      <li><span class="btn">手動 1　開啟設定頁，自行調成 640 dp</span>：到開發人員選項把最小寬度改成 640。</li>
       <li><span class="btn">2　開啟 Google 地圖資訊</span>：在這頁點「強制停止」並確認。</li>
       <li><span class="btn">3　開啟 Google Play 服務資訊</span>：同樣點「強制停止」並確認。</li>
       <li>打開 Google 地圖 →「你的時間軸」，確認能看到。</li>
@@ -117,12 +117,23 @@
         <p>這是 iQOO、小米等系統對非商店 App 的限制。到助手的應用程式資訊頁，右上角「⋮」選「允許受限制的設定」，再回無障礙頁開啟。開好之後不要再去設定頁手動切換那個開關。</p>
       </details>
       <details>
+        <summary>按「開始自動測試」沒反應，或重開機後無障礙被關掉（vivo、OPPO 等）</summary>
+        <p>這些系統會在背景把助手停掉，設定裡的開關有時還顯示開著，但服務其實沒在跑，每日定時也就不會執行。請依序試：</p>
+        <ol>
+          <li>到無障礙設定，把「時間軸助手」關掉再打開一次。</li>
+          <li>在設定最上方的搜尋框搜「自啟動」，允許時間軸助手自動啟動（有「關聯啟動」也一起開）。</li>
+          <li>搜「後台耗電」或「耗電管理」，把時間軸助手設成允許後台活動／不受限制。</li>
+          <li>打開最近任務，把助手的卡片往下拉鎖住。</li>
+        </ol>
+        <p>vivo／iQOO 的安全管理有時會把自行安裝的 App 判定為風險而關掉無障礙，需要把系統的自動偵測關閉。</p>
+      </details>
+      <details>
         <summary>明天時間軸又不見了？</summary>
-        <p>這是正常的——Google 每天會重新檢查裝置資格。再按一次 <span class="btn">立即測試</span> 即可，或用上面的「每日自動執行」讓它每天自己重做。</p>
+        <p>這是正常的——Google 每天會重新檢查裝置資格。再按一次 <span class="btn">開始自動測試</span> 即可，或用上面的「每日自動執行」讓它每天自己重做。</p>
       </details>
       <details>
         <summary>所有手機都能用嗎？</summary>
-        <p>各品牌的設定頁與背景限制不同。iQOO 15 已實測可行，其他機型建議先手動測一次。助手無法補回先前沒有記錄到的行程。</p>
+        <p>各品牌的設定頁與背景限制不同。iQOO 15 已實測可行；小米／紅米請改用 <a href="xiaomi.html">小米版</a>。其他機型建議先手動測一次。助手無法補回先前沒有記錄到的行程。</p>
       </details>
     </div>
     <a class="alt" href="xiaomi.html">小米／紅米 HyperOS：小米版教學與下載 →</a>
@@ -132,7 +143,7 @@
 </main>
 
 <footer>
-  時間軸助手 v0.12 · 本工具僅協助在自己的裝置上存取自己的 Google 地圖時間軸
+  時間軸助手 v0.19 · 本工具僅協助在自己的裝置上存取自己的 Google 地圖時間軸
 </footer>
 
 </body>
