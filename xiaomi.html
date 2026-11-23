@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>時間軸助手 小米版｜HyperOS 下載與使用教學</title>
+<style>
+  *{box-sizing:border-box}
+  :root{--bg:#f6f8f6;--ink:#15332e;--brand:#143e39;--brand2:#1c5a4f;--mint:#bff0ce;--mi:#ff6900;--line:#d4ded6;--soft:#eef3ee;--warn:#8a5a00;--warnbg:#fff6e2}
+  body{margin:0;color:var(--ink);background:var(--bg);font:16px/1.75 "Noto Sans TC",system-ui,-apple-system,sans-serif}
+  a{color:var(--brand2)}
+  header{background:var(--brand);color:#fff;border-bottom:6px solid var(--mi)}
+  header .wrap{padding:44px 22px}
+  .wrap{max-width:780px;margin:auto;padding:26px 22px}
+  .tag{display:inline-block;font-size:13px;letter-spacing:.08em;color:#ffd2b3;border:1px solid #8a4a1f;border-radius:999px;padding:3px 12px;margin-bottom:14px}
+  h1{font-size:clamp(32px,7vw,52px);line-height:1.12;margin:.1em 0 .3em}
+  h1 span{color:var(--mi)}
+  header p{color:#dcebe0;margin:.4em 0 1.4em}
+  .cta{display:inline-block;background:var(--mint);color:#0f2f29;font-weight:700;text-decoration:none;padding:13px 26px;border-radius:10px;font-size:18px}
+  .cta:hover{background:#a6e6ba}
+  .cta small{display:block;font-weight:400;font-size:12px;color:#2b5a4f}
+  .side{margin-top:16px;font-size:14px}
+  .side a{color:var(--mint)}
+  section{border-bottom:1px solid var(--line);padding:10px 0 26px}
+  h2{font-size:22px;margin:1.3em 0 .4em;display:flex;align-items:center;gap:10px}
+  h2 .n{flex:0 0 auto;width:30px;height:30px;border-radius:50%;background:var(--brand);color:#fff;font-size:15px;display:grid;place-items:center}
+  h3{font-size:17px;margin:1.2em 0 .2em}
+  ol,ul{padding-left:1.4em}
+  li{margin:.5em 0}
+  code{background:var(--soft);padding:2px 7px;border-radius:5px;font-size:14px;border:1px solid var(--line)}
+  .btn{display:inline-block;background:var(--soft);border:1px solid var(--line);border-radius:7px;padding:1px 9px;font-size:14px;font-weight:600;white-space:nowrap}
+  .note{background:var(--warnbg);border:1px solid #f0d99a;border-left:4px solid #e3a93b;border-radius:8px;padding:14px 16px;margin:16px 0;font-size:15px}
+  .note b{color:var(--warn)}
+  .key{background:#fff;border:1px solid var(--line);border-left:4px solid var(--mi);border-radius:8px;padding:14px 16px;margin:16px 0}
+  .key h3{margin-top:.2em}
+  .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:6px 20px;margin:14px 0}
+  details{border-top:1px solid var(--line);padding:4px 0}
+  details:first-of-type{border-top:0}
+  summary{cursor:pointer;font-weight:600;padding:10px 0}
+  .flow{list-style:none;padding:0;margin:14px 0;counter-reset:f}
+  .flow li{counter-increment:f;position:relative;padding:10px 14px 10px 46px;background:#fff;border:1px solid var(--line);border-radius:10px;margin:8px 0}
+  .flow li::before{content:counter(f);position:absolute;left:12px;top:10px;width:24px;height:24px;border-radius:50%;background:var(--mi);color:#fff;font-size:13px;font-weight:700;display:grid;place-items:center}
+  footer{color:#5a6b63;font-size:14px;text-align:center;padding:30px 22px 50px}
+  .alt{display:block;margin-top:18px;padding:14px 18px;background:var(--soft);border:1px solid var(--line);border-radius:10px;text-decoration:none;font-weight:600}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <span class="tag">小米／紅米 HyperOS 專用 · v0.24 · 繁體中文</span>
+    <h1>時間軸助手 <span>小米版</span></h1>
+    <p>專為小米 HyperOS 調整的版本。小米的設定頁、應用程式資訊頁和背景限制都跟其他品牌不同，通用版在小米上會卡住，請改用這一版。它會暫時把螢幕調成平板尺寸（640 dp），停止 Google 地圖與 Play 服務，讓地圖重新判定為「支援時間軸」，再把畫面還原。不用 root、不用電腦。</p>
+    <a class="cta" href="Timeline-Xiaomi-0.24.apk" download>下載小米版 APK ↓<small>Timeline-Xiaomi-0.24.apk</small></a>
+    <p class="side">iQOO 或其他品牌？請用 <a href="index.html">通用版教學 →</a></p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="note">
+    <b>先了解一件事：效果不是永久的。</b>Google Play 服務大約每天會重新檢查一次裝置資格，所以時間軸過一陣子會再被關掉。這支工具的設計是「需要時再跑一次」，或用內建的<b>每日自動執行</b>讓它每天自己重做。
+  </div>
+
+  <section>
+    <h2><span class="n">1</span>安裝前準備</h2>
+    <ol>
+      <li>確認手機已開啟「開發者選項」，位置在「設定 → 更多設定 → 開發者選項」。如果找不到，先到「我的裝置」裡連點「OS 版本」七次開啟。</li>
+      <li>進「開發者選項 → 最小寬度」，<b>先截圖記下目前的數字</b>（例如小米 14 Pro 是 <code>411</code>）。這是你的日常原值，之後要靠它還原。</li>
+      <li>如果之前裝過通用版的「時間軸助手」（例如 0.12），<b>先解除安裝</b>，免得兩個助手同時開著無障礙服務、互相干擾。</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2><span class="n">2</span>安裝 App</h2>
+    <ol>
+      <li>用手機下載上面的 APK，用「檔案管理」打開並安裝。系統提示來源不明時，確認後允許安裝。</li>
+      <li><b>要裝在主空間。</b>不要用「第二空間」、應用雙開，或桌面圖示帶公事包標記的工作空間裡的 App 開啟 APK，裝進那些空間的助手讀不到系統畫面。</li>
+      <li>裝好後打開，標題應顯示「時間軸助手 0.24 小米」。</li>
+    </ol>
+    <p>小米不需要電腦或 ADB，沒插 SIM 卡也能裝。</p>
+  </section>
+
+  <section>
+    <h2><span class="n">3</span>開啟四項權限（關鍵步驟）</h2>
+    <p>小米對自行安裝的 App 限制很多，以下四項缺一不可：</p>
+
+    <div class="key">
+      <h3>① 允許受限制的設定</h3>
+      <p>長按助手圖示 →「應用程式資訊」→ 右上角「⋮」→「允許受限制的設定」。沒做這步，無障礙服務會開不起來。</p>
+    </div>
+
+    <div class="key">
+      <h3>② 開啟無障礙服務</h3>
+      <p>打開助手，點 <span class="btn">開啟無障礙設定</span>，找到「時間軸助手 0.24 小米」並開啟。開好之後不要反覆切換這個開關。</p>
+    </div>
+
+    <div class="key">
+      <h3>③ 後台彈出介面</h3>
+      <p>「應用程式資訊」→「其他權限」→「<b>後台彈出介面</b>」（有的版本寫「在背景執行時顯示彈出視窗」）→ 允許。沒開的話，助手開不了地圖的資訊頁，會卡在「停止 地圖」。</p>
+    </div>
+
+    <div class="key">
+      <h3>④ 自啟動</h3>
+      <p>「應用程式資訊」→ 打開「<b>自啟動</b>」。每日自動執行和開機自動執行需要它。</p>
+    </div>
+
+    <p>最後回到助手，點 <span class="btn">記下我的原始寬度</span>，填入第 1 步記下的數字（例如 <code>411</code>）並保存。</p>
+  </section>
+
+  <section>
+    <h2><span class="n">4</span>開始自動測試</h2>
+    <p>先結束導航，保持手機亮屏、解鎖，按 <span class="btn">開始自動測試</span> 之後就<b>不要碰手機</b>，讓助手自己跑完。過程中畫面會縮小再變回來，這是正常的：</p>
+    <ol class="flow">
+      <li>打開「開發者選項」，自動點開「最小寬度」，改成 <code>640</code> 並確定。</li>
+      <li>打開地圖的「應用程式資訊」頁。小米的停止鈕叫「<b>結束執行</b>」，在左下角。如果它是<b>灰色</b>，代表地圖本來就沒在執行，助手會自動跳過。</li>
+      <li>打開「Google Play 服務」的資訊頁，按「結束執行」→「確定」。</li>
+      <li>回到「開發者選項」，把最小寬度改回你的原始寬度。</li>
+      <li>狀態顯示「<b>已完成停止流程，畫面已還原至原始寬度。</b>」</li>
+    </ol>
+    <p>完成後，<b>自己打開 Google 地圖 → 右上角頭像 → 你的時間軸</b>，這時應該就能看到了。</p>
+  </section>
+
+  <section>
+    <h2><span class="n">5</span>讓它每天自動重做</h2>
+    <ul>
+      <li>點 <span class="btn">每日執行時間</span>，選一個你方便、通常不會在導航的時段（例如半夜）。</li>
+      <li>勾選 <span class="btn">每日自動執行</span>。到點時如果手機鎖定或熄屏，助手會等你解鎖亮屏後再補跑。</li>
+      <li>想連重開機後也自動執行：先讓 <span class="btn">開始自動測試</span> 成功跑完一次，再勾 <span class="btn">每次開機解鎖後自動執行</span>。</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2><span class="n">?</span>疑難排解</h2>
+    <p>助手卡住時，畫面最下方的狀態列會顯示停在哪一步，後面常接一長串診斷文字。回報問題時，把那一行截圖下來最有幫助。</p>
+    <div class="card">
+      <details>
+        <summary>停在「最小寬度」那一列，一直不會點進去</summary>
+        <p>常見狀態是「收到設定頁事件，但未讀到設定內容」。小米會對一般 App 隱藏設定頁的內容，只有小米版（0.23 以後）讀得到。請確認裝的是小米版，再到無障礙設定把它關掉、重新開一次。</p>
+      </details>
+      <details>
+        <summary>逾時：停止 地圖（狀態寫「畫面 com.android.settings」）</summary>
+        <p>這代表地圖的資訊頁沒有被開起來，通常是第 3 步的「<b>後台彈出介面</b>」沒有允許。開啟後再測一次。</p>
+      </details>
+      <details>
+        <summary>「結束執行」是灰色的，按不下去</summary>
+        <p>正常。灰色代表那個 App 現在沒在執行，不需要停止，助手會自動跳過。</p>
+      </details>
+      <details>
+        <summary>無障礙服務開不起來，或一開就被關掉</summary>
+        <p>先做第 3 步的「允許受限制的設定」，再開無障礙。開好之後不要反覆切換那個開關。如果你同時裝了通用版和小米版，請只留小米版。</p>
+      </details>
+      <details>
+        <summary>畫面還很小，怎麼還原？</summary>
+        <p>先點助手的 <span class="btn">僅還原畫面大小</span>。如果還是沒恢復，到「開發者選項 → 最小寬度」手動改回你一開始記下的原值。</p>
+      </details>
+      <details>
+        <summary>明天時間軸又不見了？</summary>
+        <p>這是正常的，Google 會定期重新檢查。再按一次 <span class="btn">開始自動測試</span>，或開啟「每日自動執行」讓它每天自己重做。</p>
+      </details>
+      <details>
+        <summary>哪些小米機型可以用？</summary>
+        <p>目前在小米 14 Pro 陸版 HyperOS 上實測成功。其他小米／紅米機型的設定頁大致相同，但建議先跑一次並確認時間軸有開啟。助手無法補回先前沒有記錄到的行程。</p>
+      </details>
+    </div>
+    <a class="alt" href="index.html">iQOO 等其他品牌：通用版教學 →</a>
+  </section>
+
+</main>
+
+<footer>
+  時間軸助手 小米版 v0.24 · 實測機型：小米 14 Pro 陸版 HyperOS · 本工具僅協助在自己的裝置上存取自己的 Google 地圖時間軸
+</footer>
+
+</body>
+</html>
