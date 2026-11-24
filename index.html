@@ -6,7 +6,7 @@
 <title>時間軸助手｜下載與使用教學</title>
 <style>
   *{box-sizing:border-box}
-  :root{--bg:#f6f8f6;--ink:#15332e;--brand:#143e39;--brand2:#1c5a4f;--mint:#bff0ce;--line:#d4ded6;--soft:#eef3ee;--warn:#8a5a00;--warnbg:#fff6e2}
+  :root{--bg:#f6f8f6;--ink:#15332e;--brand:#143e39;--brand2:#1c5a4f;--mint:#bff0ce;--line:#d4ded6;--soft:#eef3ee;--warn:#8a5a00;--warnbg:#fff6e2;--blue:#1c4e8a;--bluebg:#e8f0fb}
   body{margin:0;color:var(--ink);background:var(--bg);font:16px/1.75 "Noto Sans TC",system-ui,-apple-system,sans-serif}
   a{color:var(--brand2)}
   header{background:var(--brand);color:#fff;border-bottom:6px solid var(--mint)}
@@ -24,37 +24,40 @@
   h3{font-size:17px;margin:1.2em 0 .2em}
   ol,ul{padding-left:1.4em}
   li{margin:.5em 0}
-  code{background:var(--soft);padding:2px 7px;border-radius:5px;font-size:14px;border:1px solid var(--line)}
+  code{background:var(--soft);padding:2px 7px;border-radius:5px;font-size:13.5px;border:1px solid var(--line);word-break:break-all}
   .btn{display:inline-block;background:var(--soft);border:1px solid var(--line);border-radius:7px;padding:1px 9px;font-size:14px;font-weight:600;white-space:nowrap}
   .note{background:var(--warnbg);border:1px solid #f0d99a;border-left:4px solid #e3a93b;border-radius:8px;padding:14px 16px;margin:16px 0;font-size:15px}
   .note b{color:var(--warn)}
+  .tip{background:var(--bluebg);border:1px solid #bcd4f2;border-left:4px solid #3a7bd5;border-radius:8px;padding:14px 16px;margin:16px 0;font-size:15px}
+  .tip b{color:var(--blue)}
   .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:6px 20px;margin:14px 0}
   details{border-top:1px solid var(--line);padding:4px 0}
   details:first-of-type{border-top:0}
   summary{cursor:pointer;font-weight:600;padding:10px 0}
   footer{color:#5a6b63;font-size:14px;text-align:center;padding:30px 22px 50px}
   .alt{display:block;margin-top:18px;padding:14px 18px;background:var(--soft);border:1px solid var(--line);border-radius:10px;text-decoration:none;font-weight:600}
-  .side{margin-top:16px;font-size:14px}
-  .side a{color:var(--mint)}
+  .pill{display:inline-block;background:#2d6a5d;color:#eafff2;border-radius:6px;font-size:12px;padding:1px 8px;margin-left:6px}
 </style>
 </head>
 <body>
 
 <header>
   <div class="wrap">
-    <span class="tag">Android · v0.26 · 繁體中文</span>
+    <span class="tag">Android · 免 root · 繁體中文</span>
     <h1>時間軸助手</h1>
-    <p>手機的 Google 地圖顯示「無法在這類裝置上開啟時間軸」？這支小工具會暫時把螢幕調成平板尺寸（640 dp）、強制停止地圖與 Google Play 服務，讓地圖重新判定為「支援」，再把畫面還原回原本大小。全程在手機上自動完成，不用電腦、不用 root。</p>
-    <a class="cta" href="Timeline-NoPair-0.26.apk" download>下載 Android APK ↓<small>Timeline-NoPair-0.26.apk</small></a>
-    <p class="side">小米／紅米（HyperOS）用戶請改用 <a href="xiaomi.html">小米版教學與下載 →</a></p>
+    <p>手機的 Google 地圖顯示「無法在這類裝置上開啟時間軸」？這支小工具會暫時把螢幕調成平板尺寸（640 dp）、強制停止地圖與 Google Play 服務，讓地圖重新判定為「支援」，再把畫面還原回原本大小。免電腦、免 root，一支 App 支援各家手機。</p>
+    <a class="cta" href="https://github.com/steve19860004/timeline-helper-app/releases/latest/download/TimelineHelper.apk" download>下載 Android APK ↓<small>TimelineHelper.apk（永遠指向最新版）</small></a>
+    <p style="margin-top:14px;font-size:14px"><a href="https://github.com/steve19860004/timeline-helper-app/releases/latest" style="color:var(--mint)">版本說明與歷史版本 →</a></p>
   </div>
 </header>
 
 <main class="wrap">
 
-  <div class="note">
-    <b>0.26：</b>修正部分手機（例如榮耀）系統讀到的寬度跟設定頁差 1 dp，助手就不肯執行的問題。<br><b>0.25 起：跑完自動離開設定頁。</b>開機或每日自動執行跑完後，會自動回到桌面；手動按 <span class="btn">開始自動測試</span> 跑完，會回到助手畫面顯示結果。<br>
-    <b>從 0.19 或更早版本更新：</b>請先<b>解除安裝舊版</b>再安裝 0.26（簽章不同，無法直接覆蓋）；已裝 0.25 的可以直接覆蓋安裝。裝好後重新 <span class="btn">記下我的原始寬度</span>、開啟無障礙，並重新勾選每日／開機自動執行。
+  <div class="tip">
+    <b>這版把所有機型合成一支 App，並提供兩種執行方式：</b><br>
+    ・<b>Shizuku 模式（推薦）</b>：直接下系統指令，<b>免無障礙，手機鎖著、熄屏也能自動執行</b>，最省事、最穩。<br>
+    ・<b>無障礙模式</b>：不需 Shizuku，App 自動操作設定頁完成同樣流程，<b>需要螢幕解鎖、亮著時才能跑</b>。<br>
+    小米／紅米（HyperOS）、vivo／OPPO 都用這同一支；小米的寬度輸入框會自動處理。
   </div>
 
   <div class="note">
@@ -62,93 +65,88 @@
   </div>
 
   <section>
-    <h2><span class="n">1</span>首次安裝與設定</h2>
+    <h2><span class="n">A</span>Shizuku 模式 <span class="pill">推薦</span></h2>
+    <p>優點：免開無障礙、手機<b>鎖著或熄屏也能執行</b>，而且不用手動記寬度（自動偵測並還原）。</p>
     <ol>
-      <li>用手機下載並安裝上面的 APK。若系統提示來源不明，確認後允許安裝。</li>
-      <li>到「設定 → 開發人員選項 → 最小寬度」，<b>先截圖記下目前的數字</b>（例如 iQOO 15 是 <code>360</code>）。這是你的日常原值，之後要靠它還原。</li>
-      <li>打開助手，點 <span class="btn">記下我的原始寬度</span>，填入剛才看到的數字並保存。</li>
-      <li>點 <span class="btn">開啟無障礙設定</span>，找到「時間軸助手」並啟用。助手需要這個權限才能自動操作設定畫面。</li>
-      <li>把 Google 地圖圖示放到桌面首頁（資料夾外），備援流程會用到。</li>
+      <li>安裝 <b>Shizuku</b> App，依它的說明用「無線偵錯」啟動服務（配對一次後可設成開機自動啟動）。</li>
+      <li>安裝並打開「時間軸助手」，執行方式選 <span class="btn">Shizuku</span>，點 <span class="btn">授權 Shizuku</span>。</li>
+      <li>按 <span class="btn">開始執行</span>，約 15 秒跑完，畫面會自動還原。接著打開 <b>Google 地圖 → 右上角頭像 → 你的時間軸</b>。</li>
+      <li>要每天自動跑：開 <span class="btn">每日自動執行</span> 選一個時段（Shizuku 模式熄屏也會跑）；或開 <span class="btn">每次開機後自動執行</span>（需 Shizuku 已啟動）。</li>
     </ol>
-    <div class="note">
-      <b>iQOO／小米等系統：無障礙一開就被關掉？</b>這些系統會限制「非商店安裝」App 的無障礙權限，顯示「受限制的設定」。請到助手的<b>應用程式資訊 → 右上角「⋮」 → 允許受限制的設定</b>，再回無障礙頁開啟。開啟後<b>不要再去設定頁切換那個開關</b>，以免又被系統還原。
-    </div>
+    <div class="note"><b>小米／紅米沒插 SIM 卡？</b>HyperOS 要開「USB 偵錯（安全設定）」才能用 Shizuku 改顯示大小，而這需要插卡。沒插卡就改用下面的<b>無障礙模式</b>。</div>
   </section>
 
   <section>
-    <h2><span class="n">2</span>自動模式：按一下就好</h2>
-    <p>平常保持螢幕正常大小，確認無障礙服務已開啟、原始寬度已記下，然後：</p>
+    <h2><span class="n">B</span>無障礙模式（免 Shizuku）</h2>
+    <h3>首次設定</h3>
     <ol>
-      <li>先結束導航，保持手機亮屏並解鎖。</li>
-      <li>按 <span class="btn">開始自動測試</span>。畫面會暫時縮小——助手正在調到 640 dp，並依序強制停止 Google 地圖與 Google Play 服務。</li>
-      <li>跑完後助手會自動回到自己的畫面。看到狀態顯示已完成、畫面還原回原本大小後，<b>自己打開 Google 地圖 → 右上角頭像 → 你的時間軸</b>。這次應該就能看到了。</li>
+      <li>到「設定 → 開發人員選項 → 最小寬度」，<b>先截圖記下目前的數字</b>（例如 iQOO 15 是 <code>360</code>）。</li>
+      <li>打開助手，執行方式選 <span class="btn">無障礙</span>，點 <span class="btn">記下我的原始寬度</span> 填入剛才的數字。</li>
+      <li>點 <span class="btn">開啟無障礙設定</span>，啟用「時間軸助手」。</li>
     </ol>
-    <p>整段過程不用重開機。若某一步卡住，助手最下方會顯示「執行中：…」是哪一步，照下方的疑難排解處理。</p>
+    <div class="note"><b>無障礙一開就被關掉／顯示「受限制的設定」？</b>到助手的<b>應用程式資訊 → 右上角「⋮」→ 允許受限制的設定</b>，再回無障礙頁開啟。開啟後不要再去設定頁切換那個開關。</div>
+    <h3>執行</h3>
+    <ol>
+      <li>先結束導航，保持<b>手機亮屏並解鎖</b>（無障礙模式要看著設定頁操作，所以不能鎖屏）。</li>
+      <li>按 <span class="btn">開始自動測試</span>，畫面會暫時縮小，助手依序調 640 dp、強制停止地圖與 Play 服務，再還原。</li>
+      <li>跑完打開 Google 地圖 →「你的時間軸」。</li>
+    </ol>
+    <div class="tip"><b>vivo／OPPO 重開機後無障礙被系統關掉？</b>開助手裡的 <span class="btn">開機保活</span>（需先授權「寫入安全設定」）。它會每 15 分鐘檢查，被關掉就自動重新開啟。授權方式：有 Shizuku 的話在 App 裡一鍵授；或用電腦執行一次<br><code>adb shell pm grant tw.local.timeline android.permission.WRITE_SECURE_SETTINGS</code></div>
   </section>
 
   <section>
-    <h2><span class="n">3</span>讓它每天自動重做（解決每天失效）</h2>
-    <p>因為時間軸大約每天會被 Google 重新關掉，與其每天手動按，不如讓助手自己跑：</p>
+    <h2><span class="n">C</span>讓它每天自動重做</h2>
+    <p>時間軸大約每天會被 Google 重新關掉，與其每天手動按，不如讓助手自己跑：</p>
     <ul>
-      <li>點 <span class="btn">每日執行時間</span> 選一個你方便、通常不會在導航的時段（例如半夜）。</li>
-      <li>勾選 <span class="btn">每日自動執行</span>。到點時若手機是鎖定或熄屏，助手會等你解鎖亮屏後再補跑。自動執行跑完會直接回到桌面。</li>
-      <li>想連重開機後也自動執行：先讓 <span class="btn">開始自動測試</span> 成功跑完一次，再勾 <span class="btn">每次開機解鎖後自動執行</span>。</li>
+      <li>點 <span class="btn">每日執行時間</span> 選一個不會在導航的時段（例如半夜）。</li>
+      <li>勾 <span class="btn">每日自動執行</span>。Shizuku 模式熄屏也會跑；無障礙模式會等亮屏解鎖後補跑。</li>
+      <li>想連重開機後也自動跑：先成功執行一次，再勾 <span class="btn">每次開機後自動執行</span>。</li>
     </ul>
-    <p>這樣雖然不是真正「永久」，但你平常幾乎不會再碰到時間軸被關掉的狀態。</p>
   </section>
 
   <section>
-    <h2><span class="n">4</span>手動模式（自動失敗時的備案）</h2>
-    <p>如果自動流程在你的手機上被系統擋住，可以用上方的 1～4 步自己操作，助手只負責帶你到正確的頁面：</p>
+    <h2><span class="n">D</span>手動模式（自動失敗時的備案）</h2>
     <ol>
-      <li><span class="btn">手動 1　開啟設定頁，自行調成 640 dp</span>：到開發人員選項把最小寬度改成 640。</li>
-      <li><span class="btn">2　開啟 Google 地圖資訊</span>：在這頁點「強制停止」並確認。</li>
-      <li><span class="btn">3　開啟 Google Play 服務資訊</span>：同樣點「強制停止」並確認。</li>
-      <li>打開 Google 地圖 →「你的時間軸」，確認能看到。</li>
-      <li><span class="btn">4　開啟設定，還原我的寬度</span>：把最小寬度改回你記下的原值。</li>
+      <li><span class="btn">1 開啟設定頁，自行調成 640 dp</span></li>
+      <li><span class="btn">2 開啟 Google 地圖資訊</span>：點「強制停止」並確認。</li>
+      <li><span class="btn">3 開啟 Google Play 服務資訊</span>：點「強制停止」並確認。</li>
+      <li>打開 Google 地圖 →「你的時間軸」。</li>
+      <li><span class="btn">4 開啟設定，還原我的寬度</span>：把最小寬度改回原值。</li>
     </ol>
-    <p>結束後若畫面還是小的，點 <span class="btn">僅還原畫面大小</span>，或自己到開發人員選項改回原值。</p>
   </section>
 
   <section>
     <h2><span class="n">?</span>疑難排解</h2>
     <div class="card">
       <details>
+        <summary>該選 Shizuku 還是無障礙？</summary>
+        <p>能裝 Shizuku 就用 Shizuku，最省事又能鎖屏執行。小米沒插卡開不了安全設定、或不想裝 Shizuku，就用無障礙模式。</p>
+      </details>
+      <details>
         <summary>畫面還很小，怎麼還原？</summary>
-        <p>先點助手的 <span class="btn">僅還原畫面大小</span>。若仍沒恢復，到「開發人員選項 → 最小寬度」手動改回你一開始記下的原值。</p>
+        <p>點助手的 <span class="btn">僅還原畫面大小</span>。若仍沒恢復，到「開發人員選項 → 最小寬度」手動改回原值。</p>
       </details>
       <details>
-        <summary>無障礙服務一直被關掉／顯示「受限制的設定」</summary>
-        <p>這是 iQOO、小米等系統對非商店 App 的限制。到助手的應用程式資訊頁，右上角「⋮」選「允許受限制的設定」，再回無障礙頁開啟。開好之後不要再去設定頁手動切換那個開關。</p>
-      </details>
-      <details>
-        <summary>按「開始自動測試」沒反應，或重開機後無障礙被關掉（vivo、OPPO 等）</summary>
-        <p>這些系統會在背景把助手停掉，設定裡的開關有時還顯示開著，但服務其實沒在跑，每日定時也就不會執行。請依序試：</p>
-        <ol>
-          <li>到無障礙設定，把「時間軸助手」關掉再打開一次。</li>
-          <li>在設定最上方的搜尋框搜「自啟動」，允許時間軸助手自動啟動（有「關聯啟動」也一起開）。</li>
-          <li>搜「後台耗電」或「耗電管理」，把時間軸助手設成允許後台活動／不受限制。</li>
-          <li>打開最近任務，把助手的卡片往下拉鎖住。</li>
-        </ol>
-        <p>vivo／iQOO 的安全管理有時會把自行安裝的 App 判定為風險而關掉無障礙，需要把系統的自動偵測關閉。</p>
+        <summary>重開機後無障礙被關掉（vivo、OPPO 等）</summary>
+        <p>開 <span class="btn">開機保活</span>（需寫入安全設定權限）。另外可到系統「自啟動」允許時間軸助手、把它設成不受後台耗電限制，並在最近任務鎖住卡片。用 Shizuku 模式則沒有這個困擾。</p>
       </details>
       <details>
         <summary>明天時間軸又不見了？</summary>
-        <p>這是正常的——Google 每天會重新檢查裝置資格。再按一次 <span class="btn">開始自動測試</span> 即可，或用上面的「每日自動執行」讓它每天自己重做。</p>
+        <p>正常現象——Google 每天重新檢查。再執行一次，或用「每日自動執行」讓它每天自己重做。</p>
       </details>
       <details>
         <summary>所有手機都能用嗎？</summary>
-        <p>各品牌的設定頁與背景限制不同。iQOO 15 已實測可行；小米／紅米請改用 <a href="xiaomi.html">小米版</a>。其他機型建議先手動測一次。助手無法補回先前沒有記錄到的行程。</p>
+        <p>各品牌設定頁與背景限制不同，建議先手動測一次。助手無法補回先前沒有記錄到的行程。</p>
       </details>
     </div>
-    <a class="alt" href="xiaomi.html">小米／紅米 HyperOS：小米版教學與下載 →</a>
     <a class="alt" href="Timeline-MacroDroid-Guide.html">另一種做法：MacroDroid 與 Shizuku 教學 →</a>
   </section>
 
 </main>
 
 <footer>
-  時間軸助手 v0.26 · 本工具僅協助在自己的裝置上存取自己的 Google 地圖時間軸
+  時間軸助手 · 免 root · 開源 GPLv3 · 本工具僅協助在自己的裝置上存取自己的 Google 地圖時間軸<br>
+  <a href="https://github.com/steve19860004/timeline-helper-app">GitHub 原始碼</a>
 </footer>
 
 </body>
