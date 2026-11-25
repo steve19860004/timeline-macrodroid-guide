@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>陸版 vivo／iQOO LINE 通話自動錄音｜教學與下載</title>
+<style>
+  *{box-sizing:border-box}
+  :root{--bg:#f6f8f6;--ink:#15332e;--brand:#143e39;--brand2:#1c5a4f;--mint:#bff0ce;--line:#d4ded6;--soft:#eef3ee;--warn:#8a5a00;--warnbg:#fff6e2;--blue:#1c4e8a;--bluebg:#e8f0fb;--red:#9a2b2b;--redbg:#fbecec}
+  body{margin:0;color:var(--ink);background:var(--bg);font:16px/1.75 "Noto Sans TC",system-ui,-apple-system,sans-serif}
+  a{color:var(--brand2)}
+  header{background:var(--brand);color:#fff;border-bottom:6px solid var(--mint)}
+  .wrap{max-width:780px;margin:auto;padding:26px 22px}
+  header .wrap{padding:44px 22px}
+  .tag{display:inline-block;font-size:13px;letter-spacing:.08em;color:#bdeccc;border:1px solid #2d6a5d;border-radius:999px;padding:3px 12px;margin-bottom:14px}
+  h1{font-size:clamp(30px,6.5vw,48px);line-height:1.12;margin:.1em 0 .3em}
+  header p{color:#dcebe0;margin:.4em 0 1.4em}
+  .cta{display:inline-block;background:var(--mint);color:#0f2f29;font-weight:700;text-decoration:none;padding:13px 26px;border-radius:10px;font-size:18px}
+  .cta:hover{background:#a6e6ba}
+  .cta small{display:block;font-weight:400;font-size:12px;color:#2b5a4f}
+  section{border-bottom:1px solid var(--line);padding:10px 0 26px}
+  h2{font-size:22px;margin:1.3em 0 .4em;display:flex;align-items:center;gap:10px}
+  h2 .n{flex:0 0 auto;width:30px;height:30px;border-radius:50%;background:var(--brand);color:#fff;font-size:15px;display:grid;place-items:center}
+  h3{font-size:17px;margin:1.2em 0 .2em}
+  ol,ul{padding-left:1.4em}
+  li{margin:.5em 0}
+  code{background:var(--soft);padding:2px 7px;border-radius:5px;font-size:13.5px;border:1px solid var(--line);word-break:break-all}
+  .btn{display:inline-block;background:var(--soft);border:1px solid var(--line);border-radius:7px;padding:1px 9px;font-size:14px;font-weight:600;white-space:nowrap}
+  .note{background:var(--warnbg);border:1px solid #f0d99a;border-left:4px solid #e3a93b;border-radius:8px;padding:14px 16px;margin:16px 0;font-size:15px}
+  .note b{color:var(--warn)}
+  .tip{background:var(--bluebg);border:1px solid #bcd4f2;border-left:4px solid #3a7bd5;border-radius:8px;padding:14px 16px;margin:16px 0;font-size:15px}
+  .tip b{color:var(--blue)}
+  .danger{background:var(--redbg);border:1px solid #e9b8b8;border-left:4px solid #c0504d;border-radius:8px;padding:14px 16px;margin:16px 0;font-size:15px}
+  .danger b{color:var(--red)}
+  .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:6px 20px;margin:14px 0}
+  details{border-top:1px solid var(--line);padding:4px 0}
+  details:first-of-type{border-top:0}
+  summary{cursor:pointer;font-weight:600;padding:10px 0}
+  footer{color:#5a6b63;font-size:14px;text-align:center;padding:30px 22px 50px}
+  .back{display:inline-block;margin-bottom:10px;color:#bdeccc;text-decoration:none;font-size:14px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="back" href="index.html">← 回首頁（Google 地圖時間軸）</a>
+    <span class="tag">陸版 vivo／iQOO 專用 · 免 root</span>
+    <h1>LINE 通話自動錄音</h1>
+    <p>偵測到 LINE 通話就自動用手機<b>原廠錄音機</b>錄下整通（上行＋下行），掛斷自動停止，還能自動改成你要的檔名。靠 Shizuku 觸發，免 root、免電腦。</p>
+    <a class="cta" href="LineCallRecorder-4.0.2.apk" download>下載 APK ↓<small>LINE 通話自動錄音 v4.0.2</small></a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="danger">
+    <b>⚠ 只能用在「陸版（國行 OriginOS）」vivo／iQOO。</b>原理是呼叫原廠錄音機內建的「VoIP／App 錄音」功能，而這個功能<b>只有國行韌體有、台版沒有</b>。所以台灣購買的 vivo／iQOO 多半無法使用；請先確認你的是陸版。小米、三星等其他品牌也不適用這支。
+  </div>
+
+  <div class="note">
+    <b>這支錄的是「原廠通話錄音」，不是開擴音用麥克風硬收。</b>所以聲音乾淨、聽筒也能錄。錄完的檔案會出現在手機<b>原廠「錄音機」App</b> 裡（通話／App 錄音分類），本工具只是幫你<b>自動啟停＋改檔名</b>。
+  </div>
+
+  <section>
+    <h2><span class="n">1</span>需要準備</h2>
+    <ul>
+      <li>陸版 vivo／iQOO（國行 OriginOS），原廠錄音機有「通話／App 錄音」功能。</li>
+      <li><b>Shizuku</b>（建議用 Shizuku-next，開機自動啟動）。不會裝？看 <a href="index.html">首頁的「疑難排解 → Shizuku／Shizuku-next 怎麼啟動」</a>。</li>
+      <li><b>通知存取權</b>（用來偵測 LINE 通話、抓對方名字當檔名）。</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2><span class="n">2</span>安裝與設定</h2>
+    <ol>
+      <li>下載上面的 APK 安裝。第一次裝可能要允許「未知來源」。</li>
+      <li>安裝並啟動 <b>Shizuku</b>（無線偵錯，見首頁教學）。</li>
+      <li>打開「LINE 通話自動錄音」，依<b>權限設定</b>由上到下做：
+        <ul>
+          <li><span class="btn">① 授權 Shizuku</span></li>
+          <li><span class="btn">② 開啟「通知存取權」設定</span>（或按 <span class="btn">②-B 用 Shizuku 自動開</span>）</li>
+          <li><span class="btn">③ 電池最佳化</span> → 設為<b>不限制</b>，避免背景被殺掉漏錄。</li>
+        </ul>
+      </li>
+      <li><b>觸發設定</b>：打開 <span class="btn">啟用 LINE 通話自動錄音</span>。「通知關鍵字」預設即可，LINE 介面語言不同時可自行修改（例如中文是「通話中」）。</li>
+      <li><b>檔名設定</b>：可用 <code>{date}</code> <code>{time}</code> <code>{datetime}</code> <code>{contact}</code>。例：<code>LINE_{datetime}_{contact}</code>。<code>{contact}</code> 需要通知存取權才抓得到對方名字。</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2><span class="n">3</span>測試與使用</h2>
+    <ol>
+      <li>在 App 裡按 <span class="btn">測試開始</span> 錄一小段，再按 <span class="btn">測試停止</span>，到原廠「錄音機」App 確認有錄到檔案。</li>
+      <li>之後正常用 LINE 通話即可，接通會自動開始、掛斷自動停止並改檔名。</li>
+      <li>錄音檔位置：原廠<b>錄音機</b> App 的通話／App 錄音分類；用檔案管理找則通常在
+        <code>/sdcard/Recordings/Record/App/Other</code>。</li>
+    </ol>
+    <div class="tip"><b>改檔名找不到檔？</b>在 App 的「原廠錄音資料夾（選填）」填入你手機實際的錄音路徑（例如 <code>/sdcard/Recordings</code>）。留空＝自動尋找。</div>
+  </section>
+
+  <section>
+    <h2><span class="n">?</span>疑難排解</h2>
+    <div class="card">
+      <details>
+        <summary>測試錄不到／沒有產生檔案</summary>
+        <p>多半是這台不是陸版、原廠錄音機沒有 VoIP／App 錄音功能。先手動開原廠錄音機看看有沒有「通話錄音／App 錄音」。另外確認 Shizuku 已啟動、通知存取權已開。</p>
+      </details>
+      <details>
+        <summary>LINE 通話沒有自動啟動</summary>
+        <p>檢查「啟用」有打開、通知存取權有給、電池最佳化設為不限制。LINE 若改過介面語言，到「通知關鍵字」改成你 LINE 通話通知上出現的字。</p>
+      </details>
+      <details>
+        <summary>檔名沒有變成對方名字</summary>
+        <p><code>{contact}</code> 要靠通知存取權抓，請確認已授權；群組通話或未顯示名稱時可能抓不到。</p>
+      </details>
+      <details>
+        <summary>重開機後就不錄了</summary>
+        <p>Shizuku 重開機要重新啟動（建議 Shizuku-next 開「開機自動啟動」），再回 App 確認①已授權。</p>
+      </details>
+    </div>
+  </section>
+
+  <div class="danger">
+    <b>法律與隱私提醒：</b>通話錄音涉及個人隱私與法律規範，各地法令不同（有些要求對方同意）。請確認你有合法權利錄音，並妥善保管、不要外流。本工具僅供在自己裝置上個人使用，使用後果自負。
+  </div>
+
+</main>
+
+<footer>
+  LINE 通話自動錄音 v4.0.2 · 免 root（需 Shizuku）· 僅適用陸版 vivo／iQOO<br>
+  <a href="index.html">回首頁</a>
+</footer>
+
+</body>
+</html>
