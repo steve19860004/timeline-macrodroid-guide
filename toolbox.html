@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>免Root百寶箱｜陸版手機多合一工具 教學與下載</title>
+<style>
+  *{box-sizing:border-box}
+  :root{--bg:#f6f8f6;--ink:#15332e;--brand:#143e39;--brand2:#1c5a4f;--mint:#bff0ce;--line:#d4ded6;--soft:#eef3ee;--warn:#8a5a00;--warnbg:#fff6e2;--blue:#1c4e8a;--bluebg:#e8f0fb;--red:#9a2b2b;--redbg:#fbecec}
+  body{margin:0;color:var(--ink);background:var(--bg);font:16px/1.75 "Noto Sans TC",system-ui,-apple-system,sans-serif}
+  a{color:var(--brand2)}
+  header{background:var(--brand);color:#fff;border-bottom:6px solid var(--mint)}
+  .wrap{max-width:820px;margin:auto;padding:26px 22px}
+  header .wrap{padding:44px 22px}
+  .tag{display:inline-block;font-size:13px;letter-spacing:.08em;color:#bdeccc;border:1px solid #2d6a5d;border-radius:999px;padding:3px 12px;margin-bottom:14px}
+  h1{font-size:clamp(30px,6.5vw,48px);line-height:1.12;margin:.1em 0 .3em}
+  header p{color:#dcebe0;margin:.4em 0 1.4em}
+  .cta{display:inline-block;background:var(--mint);color:#0f2f29;font-weight:700;text-decoration:none;padding:13px 26px;border-radius:10px;font-size:18px}
+  .cta:hover{background:#a6e6ba}
+  .cta small{display:block;font-weight:400;font-size:12px;color:#2b5a4f}
+  section{border-bottom:1px solid var(--line);padding:10px 0 26px}
+  h2{font-size:22px;margin:1.3em 0 .4em;display:flex;align-items:center;gap:10px}
+  h2 .n{flex:0 0 auto;width:30px;height:30px;border-radius:50%;background:var(--brand);color:#fff;font-size:15px;display:grid;place-items:center}
+  ol,ul{padding-left:1.4em}
+  li{margin:.5em 0}
+  code{background:var(--soft);padding:2px 7px;border-radius:5px;font-size:13.5px;border:1px solid var(--line);word-break:break-all}
+  .btn{display:inline-block;background:var(--soft);border:1px solid var(--line);border-radius:7px;padding:1px 9px;font-size:14px;font-weight:600;white-space:nowrap}
+  .note{background:var(--warnbg);border:1px solid #f0d99a;border-left:4px solid #e3a93b;border-radius:8px;padding:14px 16px;margin:16px 0;font-size:15px}
+  .note b{color:var(--warn)}
+  .tip{background:var(--bluebg);border:1px solid #bcd4f2;border-left:4px solid #3a7bd5;border-radius:8px;padding:14px 16px;margin:16px 0;font-size:15px}
+  .tip b{color:var(--blue)}
+  .danger{background:var(--redbg);border:1px solid #e9b8b8;border-left:4px solid #c0504d;border-radius:8px;padding:14px 16px;margin:16px 0;font-size:15px}
+  .danger b{color:var(--red)}
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:15px}
+  th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+  th{background:var(--soft)}
+  td:first-child{white-space:nowrap;font-weight:600}
+  .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:6px 20px;margin:14px 0}
+  details{border-top:1px solid var(--line);padding:4px 0}
+  details:first-of-type{border-top:0}
+  summary{cursor:pointer;font-weight:600;padding:10px 0}
+  footer{color:#5a6b63;font-size:14px;text-align:center;padding:30px 22px 50px}
+  .back{display:inline-block;margin-bottom:10px;color:#bdeccc;text-decoration:none;font-size:14px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="back" href="index.html">← 回首頁</a>
+    <span class="tag">Android · 免 root · 陸版 ROM 專治</span>
+    <h1>免Root百寶箱</h1>
+    <p>專治陸版 ROM（vivo／iQOO、小米、OPPO）痛點的多合一工具，也適用一般 Android。全部免 root，需要高權限的部分透過 Shizuku。開源、免費、無廣告。</p>
+    <a class="cta" href="https://github.com/steve19860004/android-enhancer-tw/releases/latest/download/AndroidEnhancerTW.apk" download>下載 APK ↓<small>AndroidEnhancerTW.apk（永遠指向最新版）</small></a>
+    <p style="margin-top:14px;font-size:14px"><a href="https://github.com/steve19860004/android-enhancer-tw/releases/latest" style="color:var(--mint)">版本說明與歷史版本 →</a></p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section>
+    <h2><span class="n">★</span>功能一覽</h2>
+    <table>
+      <tr><th>分頁</th><th>功能</th><th>需要</th></tr>
+      <tr><td>切換器</td><td>懸浮球／側邊欄手勢／桌面捷徑／快捷磁貼，扇形展開最近 App</td><td>懸浮窗、無障礙</td></tr>
+      <tr><td>1 來電音樂</td><td>LINE／Telegram 等通話時暫停音樂，掛斷自動恢復</td><td>通知讀取</td></tr>
+      <tr><td>2 相簿守護</td><td>開相機時暫停 Google 相簿連網，離開後恢復（防邊拍邊傳卡頓）</td><td>Shizuku</td></tr>
+      <tr><td>3 語音攔截</td><td>攔截藍心小V／小愛／小布等陸版助理，改叫 Gemini</td><td>無障礙</td></tr>
+      <tr><td>4 環境隱身</td><td>進銀行／超商 App 時真的關閉開發者選項與偵錯，離開再開回（不偽裝）</td><td>寫入安全設定</td></tr>
+      <tr><td>5 捲動翻譯</td><td>穿透式原位翻譯：OCR＋離線翻譯、簡轉台灣繁體</td><td>無障礙</td></tr>
+      <tr><td>6 工具</td><td>畫圈搜尋、雙擊電源鍵開相機、地圖時間軸、靜默安裝、輸入法管理</td><td>多數需 Shizuku</td></tr>
+      <tr><td>7 系統</td><td>凍結／移除 App、單一 App 斷網、背景保活、動畫速度、私人 DNS、APK 匯出、強制分割畫面、全域深色</td><td>Shizuku／寫入安全設定</td></tr>
+      <tr><td>8 自動點擊</td><td>懸浮腳本編輯、顏色條件掛機、Shizuku／無障礙兩種送出</td><td>懸浮窗＋Shizuku 或無障礙</td></tr>
+      <tr><td>9 音量</td><td>音量增大（最高 +15dB）＋音量鍵攔截自動增大</td><td>無障礙</td></tr>
+      <tr><td>10 收回訊息</td><td>記錄通知訊息，對方收回／刪除仍看得到（純本機、不上傳）</td><td>通知讀取</td></tr>
+      <tr><td>11 定位</td><td>假 GPS 模擬定位</td><td>Shizuku</td></tr>
+    </table>
+    <div class="danger"><b>提醒：</b>假 GPS 違反多數 App／遊戲服務條款，可能被封號；收回訊息請勿用於騷擾或散布他人訊息。請自行評估、合法使用。</div>
+  </section>
+
+  <section>
+    <h2><span class="n">1</span>安裝與第一次設定</h2>
+    <ol>
+      <li>下載上面的 APK 安裝（第一次可能要允許「未知來源」）。</li>
+      <li>安裝並啟動 <b>Shizuku</b>（建議用 Shizuku-next，見下方）。</li>
+      <li>打開 App →「<b>⚙ 設定</b>」→「授權 Shizuku」→「<b>一鍵透過 Shizuku 授予全部權限</b>」。Android 13+ 側載 App 會自動解除「受限制的設定」，無障礙才開得起來。</li>
+      <li>到各分頁打開你要用的功能即可。</li>
+    </ol>
+    <div class="tip"><b>有些功能不需要 Shizuku</b>（如音量增大、收回訊息只要無障礙／通知權限）。需要高權限的（相簿守護、假 GPS、系統工具等）才需要 Shizuku。</div>
+  </section>
+
+  <section>
+    <h2><span class="n">2</span>啟動 Shizuku（無線偵錯，免電腦）</h2>
+    <p>建議用 <b><a href="https://github.com/rushiranpise/Shizuku-Next/releases">Shizuku-next</a></b>（Shizuku 強化分支，可開機自動啟動、被系統關掉會自動重啟；與官方 Shizuku 簽章不同，已裝官方版要先解除安裝）。</p>
+    <ol>
+      <li><b>先連上 Wi-Fi</b>（無線偵錯只走 Wi-Fi，用行動網路會找不到）。</li>
+      <li>開發者選項 → 打開「<b>無線偵錯</b>」，停在那頁別離開。</li>
+      <li>回 Shizuku-next 選「透過無線偵錯啟動」→ 依通知輸入「使用配對碼配對裝置」的<b>配對碼</b>。</li>
+      <li>配對成功後按「<b>啟動</b>」。開「開機自動啟動」後，之後重開機不用再手動。</li>
+    </ol>
+    <p class="note"><b>「未找到無線偵錯」、無法啟動？</b>最常見是沒連 Wi-Fi，或沒給 Shizuku-next 通知權限（配對碼靠通知輸入）。vivo／OriginOS 的無線偵錯有時會自己關，關掉再開一次重新配對即可。</p>
+  </section>
+
+  <section>
+    <h2><span class="n">?</span>常見問題</h2>
+    <div class="card">
+      <details>
+        <summary>哪些功能免 Shizuku？</summary>
+        <p>切換器（懸浮窗）、來電音樂與收回訊息（通知權限）、語音攔截、捲動翻譯、音量增大、自動點擊（無障礙模式）都可以不裝 Shizuku。相簿守護、假 GPS、系統工具（斷網／凍結／分割畫面／全域深色）等需要 Shizuku。</p>
+      </details>
+      <details>
+        <summary>重開機後很多功能失效？</summary>
+        <p>多半是 Shizuku 重開機沒自動啟動。用 Shizuku-next 並開「開機自動啟動」就會自動保活。</p>
+      </details>
+      <details>
+        <summary>無障礙一直被系統關掉（vivo／OPPO）</summary>
+        <p>到系統「自啟動」允許本 App、把它設為不受後台耗電限制，並在最近任務鎖住卡片。</p>
+      </details>
+      <details>
+        <summary>和「Android補強整合CN」是同一個嗎？</summary>
+        <p>不是。本 App 為獨立重製、以全新程式碼撰寫、開源 GPLv3，與該付費 App 無關，也沒有照抄它騙過銀行偵測、付費授權等部分。</p>
+      </details>
+    </div>
+  </section>
+
+  <div class="note">開源（GPLv3）、免費、無廣告。需要高權限的功能透過 Shizuku 執行；畫面內容只在本機即時處理，不儲存也不上傳。<a href="https://github.com/steve19860004/android-enhancer-tw">GitHub 原始碼</a></div>
+
+</main>
+
+<footer>
+  免Root百寶箱 · 免 root · 開源 GPLv3 · © 2026 steve19860004<br>
+  <a href="index.html">回首頁</a>
+</footer>
+
+</body>
+</html>
