@@ -63,19 +63,28 @@
     <table>
       <tr><th>分頁</th><th>功能</th><th>需要</th></tr>
       <tr><td>切換器</td><td>懸浮球／側邊欄手勢／桌面捷徑／快捷磁貼，扇形展開最近 App</td><td>懸浮窗、無障礙</td></tr>
-      <tr><td>1 來電音樂</td><td>LINE／Telegram 等通話時暫停音樂，掛斷自動恢復</td><td>通知讀取</td></tr>
-      <tr><td>2 相簿守護</td><td>開相機時暫停 Google 相簿連網，離開後恢復（防邊拍邊傳卡頓）</td><td>Shizuku</td></tr>
-      <tr><td>3 語音攔截</td><td>攔截藍心小V／小愛／小布等陸版助理，改叫 Gemini</td><td>無障礙</td></tr>
-      <tr><td>4 環境隱身</td><td>進銀行／超商 App 時真的關閉開發者選項與偵錯，離開再開回（不偽裝）</td><td>寫入安全設定</td></tr>
-      <tr><td>5 捲動翻譯</td><td>穿透式原位翻譯：OCR＋離線翻譯、簡轉台灣繁體</td><td>無障礙</td></tr>
-      <tr><td>6 工具</td><td>畫圈搜尋、雙擊電源鍵開相機、地圖時間軸、靜默安裝、輸入法管理</td><td>多數需 Shizuku</td></tr>
-      <tr><td>7 系統</td><td>凍結／移除 App、單一 App 斷網、背景保活、動畫速度、私人 DNS、APK 匯出、強制分割畫面、全域深色</td><td>Shizuku／寫入安全設定</td></tr>
-      <tr><td>8 自動點擊</td><td>懸浮腳本編輯、顏色條件掛機、Shizuku／無障礙兩種送出</td><td>懸浮窗＋Shizuku 或無障礙</td></tr>
-      <tr><td>9 音量</td><td>音量增大（最高 +15dB）＋音量鍵攔截自動增大</td><td>無障礙</td></tr>
-      <tr><td>10 收回訊息</td><td>記錄通知訊息，對方收回／刪除仍看得到（純本機、不上傳）</td><td>通知讀取</td></tr>
-      <tr><td>11 定位</td><td>假 GPS 模擬定位</td><td>Shizuku</td></tr>
+      <tr><td>通訊</td><td>來電暫停音樂、救回收回訊息＋訊息紀錄、通知歷史、<b>通知保活中心</b>（修 FCM／國際 App 通知延遲）</td><td>通知讀取／Shizuku</td></tr>
+      <tr><td>系統</td><td>App 管理（凍結／移除／斷網／背景）、靜默安裝 APK、APK 匯出備份、私人 DNS 擋廣告、動畫速度</td><td>Shizuku／寫入安全設定</td></tr>
+      <tr><td>螢幕</td><td>強制全 App 分割畫面／小窗、全域強制深色、音量增大器（最高 +15dB，音量鍵自動增大）</td><td>Shizuku／無障礙</td></tr>
+      <tr><td>互動</td><td>陸版語音助理攔截改叫 Gemini、穿透式捲動翻譯、畫圈搜尋、輸入法管理、雙擊電源鍵開相機</td><td>無障礙／Shizuku</td></tr>
+      <tr><td>隱私／自動</td><td>環境隱身（進銀行／超商自動關開發者選項）、相簿守護、假 GPS 定位、自動點擊／掛機腳本、Google 地圖時間軸</td><td>Shizuku／無障礙／寫入安全設定</td></tr>
+      <tr><td>⚙ 設定</td><td>Shizuku 與系統權限中心、設定備份與還原、關於</td><td>—</td></tr>
     </table>
     <div class="danger"><b>提醒：</b>假 GPS 違反多數 App／遊戲服務條款，可能被封號；收回訊息請勿用於騷擾或散布他人訊息。請自行評估、合法使用。</div>
+  </section>
+
+  <section>
+    <h2><span class="n">↻</span>更新紀錄</h2>
+    <p style="font-size:14px;color:#5a6b63">每次改版都會記在這裡。版本號對應 GitHub Release 的 build 編號，<a href="https://github.com/steve19860004/android-enhancer-tw/releases">完整歷史在 Releases</a>。</p>
+    <table>
+      <tr><th>日期</th><th>版本</th><th>更新內容</th></tr>
+      <tr><td>2026-11-26</td><td>build-22</td><td>分頁大整理：13 頁整併為 <b>7 頁</b>（切換器／通訊／系統／螢幕／互動／隱私自動／設定），功能全保留、更好找</td></tr>
+      <tr><td>2026-11-26</td><td>build-21</td><td>新增<b>通知保活中心</b>：一鍵修 Google FCM 與 LINE／FB／WhatsApp 等國際 App 的通知延遲</td></tr>
+      <tr><td>2026-11-26</td><td>build-20</td><td>新增<b>通知歷史</b>：救回已清掉／誤滑掉的通知</td></tr>
+      <tr><td>2026-11-25</td><td>build-19</td><td>移除「Google 地圖麥克風修正」卡片，改為純文字教學（根因是陸版缺 Google 語音服務，到 Play 補裝即可）</td></tr>
+      <tr><td>2026-11-25</td><td>build-9～18</td><td>新增假 GPS、救回收回訊息、強制分割畫面、全域深色、音量增大器、獨立 APK 匯出；建議改用 <b>Shizuku-Next</b> 保活</td></tr>
+      <tr><td>2026-11-25</td><td>build-2～8</td><td>改名「免Root百寶箱」、採 GPLv3 授權；建立系統工具、自動點擊、環境隱身、語音攔截、地圖時間軸等核心功能</td></tr>
+    </table>
   </section>
 
   <section>
