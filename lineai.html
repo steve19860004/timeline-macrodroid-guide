@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LINE AI 回覆｜讀到訊息自動用 AI 擬稿回覆 教學與下載</title>
+<style>
+  *{box-sizing:border-box}
+  :root{--bg:#f6f8f6;--ink:#15332e;--brand:#143e39;--brand2:#1c5a4f;--mint:#bff0ce;--line:#d4ded6;--soft:#eef3ee;--warn:#8a5a00;--warnbg:#fff6e2;--blue:#1c4e8a;--bluebg:#e8f0fb;--red:#9a2b2b;--redbg:#fbecec}
+  body{margin:0;color:var(--ink);background:var(--bg);font:16px/1.75 "Noto Sans TC",system-ui,-apple-system,sans-serif}
+  a{color:var(--brand2)}
+  header{background:var(--brand);color:#fff;border-bottom:6px solid var(--mint)}
+  .wrap{max-width:820px;margin:auto;padding:26px 22px}
+  header .wrap{padding:44px 22px}
+  .tag{display:inline-block;font-size:13px;letter-spacing:.08em;color:#bdeccc;border:1px solid #2d6a5d;border-radius:999px;padding:3px 12px;margin-bottom:14px}
+  h1{font-size:clamp(30px,6.5vw,48px);line-height:1.12;margin:.1em 0 .3em}
+  header p{color:#dcebe0;margin:.4em 0 1.4em}
+  .cta{display:inline-block;background:var(--mint);color:#0f2f29;font-weight:700;text-decoration:none;padding:13px 26px;border-radius:10px;font-size:18px}
+  .cta:hover{background:#a6e6ba}
+  .cta small{display:block;font-weight:400;font-size:12px;color:#2b5a4f}
+  section{border-bottom:1px solid var(--line);padding:10px 0 26px}
+  h2{font-size:22px;margin:1.3em 0 .4em;display:flex;align-items:center;gap:10px}
+  h2 .n{flex:0 0 auto;width:30px;height:30px;border-radius:50%;background:var(--brand);color:#fff;font-size:15px;display:grid;place-items:center}
+  ol,ul{padding-left:1.4em}
+  li{margin:.5em 0}
+  code{background:var(--soft);padding:2px 7px;border-radius:5px;font-size:13.5px;border:1px solid var(--line);word-break:break-all}
+  .note{background:var(--warnbg);border:1px solid #f0d99a;border-left:4px solid #e3a93b;border-radius:8px;padding:14px 16px;margin:16px 0;font-size:15px}
+  .note b{color:var(--warn)}
+  .tip{background:var(--bluebg);border:1px solid #bcd4f2;border-left:4px solid #3a7bd5;border-radius:8px;padding:14px 16px;margin:16px 0;font-size:15px}
+  .tip b{color:var(--blue)}
+  .danger{background:var(--redbg);border:1px solid #e9b8b8;border-left:4px solid #c0504d;border-radius:8px;padding:14px 16px;margin:16px 0;font-size:15px}
+  .danger b{color:var(--red)}
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:15px}
+  th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+  th{background:var(--soft)}
+  td:first-child{white-space:nowrap;font-weight:600}
+  details{border-top:1px solid var(--line);padding:4px 0}
+  details:first-of-type{border-top:0}
+  summary{cursor:pointer;font-weight:600;padding:10px 0}
+  footer{color:#5a6b63;font-size:14px;text-align:center;padding:30px 22px 50px}
+  .back{display:inline-block;margin-bottom:10px;color:#bdeccc;text-decoration:none;font-size:14px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="back" href="index.html">← 回首頁</a>
+    <span class="tag">Android · 免 root · AI 自動回覆</span>
+    <h1>LINE AI 回覆</h1>
+    <p>讀到 LINE 新訊息，交給 AI 用你的口氣擬一句回覆，用通知的「回覆」直接送出，不用打開 LINE。可選「擬稿待你按送出」或「全自動」。免 root。</p>
+    <a class="cta" href="https://github.com/steve19860004/line-ai-reply/releases/latest/download/LineAiReply.apk" download>下載 APK ↓<small>LineAiReply.apk（永遠指向最新版）</small></a>
+    <p style="margin-top:14px;font-size:14px"><a href="https://github.com/steve19860004/line-ai-reply/releases/latest" style="color:var(--mint)">版本說明與歷史版本 →</a></p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section>
+    <h2><span class="n">★</span>運作方式</h2>
+    <ol>
+      <li>用「通知讀取權限」讀到 LINE 傳進來的新訊息。</li>
+      <li>把訊息交給雲端 AI（Google Gemini 或 OpenAI 相容），依你設定的語氣產生回覆。</li>
+      <li>兩種模式：<b>擬稿待確認</b>（跳出懸浮視窗草稿卡，你可當場編輯再按送出）或 <b>全自動送出</b>（直接用通知的回覆動作發出）。</li>
+    </ol>
+    <div class="tip"><b>免 root：</b>靠「通知讀取」＋通知內建的「回覆」功能，不需要 Shizuku。</div>
+    <div class="danger"><b>重要：</b>它只對「你這支手機<u>收到</u>的訊息」反應，不會對你<u>發出去</u>的訊息反應。對個人 LINE 帳號自動代回可能違反 LINE 服務條款，請自行評估、保守使用（建議先用「擬稿待確認」）。</div>
+  </section>
+
+  <section>
+    <h2><span class="n">1</span>安裝與設定</h2>
+    <ol>
+      <li>下載並安裝上方 <b>APK</b>。</li>
+      <li><b>通知讀取權限</b>：App 內①「前往開啟通知讀取」→ 勾選「LINE AI 回覆」。</li>
+      <li><b>設定 AI（②）</b>：
+        <ul>
+          <li>供應商選 <b>Gemini</b>。到 <a href="https://aistudio.google.com/api-keys">aistudio.google.com</a> 免費取得 API 金鑰，貼進「API 金鑰」。</li>
+          <li>模型建議填 <code>gemini-3.5-flash-lite</code>（輕量、較不會忙碌塞爆；旗艦版免費層常回 503）。</li>
+          <li>把你的「語氣／人設」貼上（例如專業冷氣師傅的口氣），按儲存，再按「測試 AI」確認會跳出一句中文回覆。</li>
+        </ul>
+      </li>
+      <li><b>懸浮窗權限（③）</b>：打開「草稿用懸浮視窗顯示」→ 按「前往開啟懸浮窗權限」。Android 13+ 再到①允許本 App 發通知。</li>
+      <li><b>模式與範圍（③）</b>：建議先<b>關</b>「全自動送出」＝只擬稿；可設「只回白名單」、同一對話最短間隔（秒）。</li>
+      <li><b>總開關（④）</b>開啟。確認 <b>LINE 有開通知、且開「顯示訊息內容」</b>，否則讀不到內文。</li>
+      <li><b>測試</b>：請別人（或另一個帳號）傳一句進來 → 螢幕下方跳出 AI 草稿卡 → 改完按「送出」。</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2><span class="n">?</span>疑難排解</h2>
+    <details>
+      <summary>沒有跳草稿、也沒反應？</summary>
+      <p>打開 App 最下面「⑤ 最近事件」按重新整理看紀錄：若空的，代表沒收到通知。記住它<b>只對收到的訊息反應，不是你發出的</b>；而且測試時 <b>LINE 別停在那個聊天畫面</b>（前景時系統不發通知）。更新 App 後可把「通知讀取」關掉再開一次重新連線。</p>
+    </details>
+    <details>
+      <summary>懸浮窗跳不出來？</summary>
+      <p>到③確認「懸浮窗權限：已開」，可按「測試懸浮窗」驗證。未授權時會自動退回用通知顯示草稿。</p>
+    </details>
+    <details>
+      <summary>測試 AI 失敗？</summary>
+      <p>HTTP 404＝模型名稱過期，改用 <code>gemini-3.5-flash-lite</code>。HTTP 503＝伺服器忙碌，稍後再試或用輕量版（App 會自動重試幾次）。金鑰錯誤請重新產生並只在 App 內輸入。</p>
+    </details>
+    <details>
+      <summary>白名單怎麼設？</summary>
+      <p>填對話（聯絡人）名稱，用逗號分隔；採模糊比對，名稱包含即可。先測試時可直接關掉「只回白名單」。</p>
+    </details>
+  </section>
+
+  <section>
+    <h2><span class="n">♥</span>隱私與授權</h2>
+    <ul>
+      <li>App 只在本機運行；<b>API 金鑰只存你手機本機</b>，不會上傳到其他地方。</li>
+      <li>要產生回覆時，訊息內容會送到你自己設定的 AI 供應商（如 Google Gemini）。</li>
+      <li>開源 <b>GPLv3</b>、免費、無廣告。<a href="https://github.com/steve19860004/line-ai-reply">GitHub 原始碼</a></li>
+    </ul>
+  </section>
+
+</main>
+
+<footer>
+  LINE AI 回覆 · 免 root · 開源 GPLv3<br>
+  <a href="https://github.com/steve19860004/line-ai-reply">GitHub 原始碼</a>
+</footer>
+
+</body>
+</html>
