@@ -156,6 +156,16 @@
         </ul>
       </details>
       <details>
+        <summary>平常用 5G／行動網路，Shizuku 隔天或重開機就自己停了？</summary>
+        <p>Shizuku 的無線偵錯<b>預設會「等待 Wi-Fi」</b>，所以你切回 5G、或隔天重開機後，它等不到 Wi-Fi 就起不來——不是 5G 不能用。到 <b>Shizuku-Next →「啟動」</b>照下面設定就能免 Wi-Fi 自動啟動：</p>
+        <ol>
+          <li>打開「<b>不使用 Wi-Fi 啟動（實驗性）</b>」← 最關鍵，開了就不靠 Wi-Fi，<b>5G／行動網路也能啟動</b>。</li>
+          <li>「<b>預設啟動方式</b>」設成「<b>無 Wi-Fi</b>」。</li>
+          <li>「<b>開機時啟動</b>」＋「<b>看門狗</b>」都打開（重開機自動啟、崩潰自動重啟）。</li>
+        </ol>
+        <p>設完<b>重開機一次</b>再測。之後切 5G、重開機它都會自己啟動，不用每天手動開。<br><small>※ 開了「不使用 Wi-Fi 啟動」後，「等待 Wi-Fi」「關閉無線偵錯」會自動變灰（無法點），是正常的。此選項標示為實驗性，少數機型可能無效，那就回到連 Wi-Fi 啟動。</small></p>
+      </details>
+      <details>
         <summary>該選 Shizuku 還是無障礙？</summary>
         <p>能裝 Shizuku 就用 Shizuku，最省事又能鎖屏執行。小米沒插卡開不了安全設定、或不想裝 Shizuku，就用無障礙模式。</p>
       </details>
