@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Google 地圖麥克風修復｜陸版 vivo 小米 語音搜尋沒反應 一鍵引導教學</title>
+<style>
+  *{box-sizing:border-box}
+  :root{--bg:#f6f8f6;--ink:#15332e;--brand:#143e39;--brand2:#1c5a4f;--mint:#bff0ce;--line:#d4ded6;--soft:#eef3ee;--warn:#8a5a00;--warnbg:#fff6e2;--blue:#1c4e8a;--bluebg:#e8f0fb;--red:#9a2b2b;--redbg:#fbecec}
+  body{margin:0;color:var(--ink);background:var(--bg);font:16px/1.75 "Noto Sans TC",system-ui,-apple-system,sans-serif}
+  a{color:var(--brand2)}
+  header{background:var(--brand);color:#fff;border-bottom:6px solid var(--mint)}
+  .wrap{max-width:820px;margin:auto;padding:26px 22px}
+  header .wrap{padding:44px 22px}
+  .tag{display:inline-block;font-size:13px;letter-spacing:.08em;color:#bdeccc;border:1px solid #2d6a5d;border-radius:999px;padding:3px 12px;margin-bottom:14px}
+  h1{font-size:clamp(30px,6.5vw,48px);line-height:1.12;margin:.1em 0 .3em}
+  header p{color:#dcebe0;margin:.4em 0 1.4em}
+  .cta{display:inline-block;background:var(--mint);color:#0f2f29;font-weight:700;text-decoration:none;padding:13px 26px;border-radius:10px;font-size:18px}
+  .cta:hover{background:#a6e6ba}
+  .cta small{display:block;font-weight:400;font-size:12px;color:#2b5a4f}
+  section{border-bottom:1px solid var(--line);padding:10px 0 26px}
+  h2{font-size:22px;margin:1.3em 0 .4em;display:flex;align-items:center;gap:10px}
+  h2 .n{flex:0 0 auto;width:30px;height:30px;border-radius:50%;background:var(--brand);color:#fff;font-size:15px;display:grid;place-items:center}
+  ol,ul{padding-left:1.4em}
+  li{margin:.5em 0}
+  code{background:var(--soft);padding:2px 7px;border-radius:5px;font-size:13.5px;border:1px solid var(--line);word-break:break-all}
+  .note{background:var(--warnbg);border:1px solid #f0d99a;border-left:4px solid #e3a93b;border-radius:8px;padding:14px 16px;margin:16px 0;font-size:15px}
+  .note b{color:var(--warn)}
+  .tip{background:var(--bluebg);border:1px solid #bcd4f2;border-left:4px solid #3a7bd5;border-radius:8px;padding:14px 16px;margin:16px 0;font-size:15px}
+  .tip b{color:var(--blue)}
+  .danger{background:var(--redbg);border:1px solid #e9b8b8;border-left:4px solid #c0504d;border-radius:8px;padding:14px 16px;margin:16px 0;font-size:15px}
+  .danger b{color:var(--red)}
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:15px}
+  th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+  th{background:var(--soft)}
+  td:first-child{white-space:nowrap;font-weight:600}
+  details{border-top:1px solid var(--line);padding:4px 0}
+  details:first-of-type{border-top:0}
+  summary{cursor:pointer;font-weight:600;padding:10px 0}
+  footer{color:#5a6b63;font-size:14px;text-align:center;padding:30px 22px 50px}
+  .back{display:inline-block;margin-bottom:10px;color:#bdeccc;text-decoration:none;font-size:14px}
+  .step{font-weight:700;color:var(--brand)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="back" href="index.html">← 回首頁</a>
+    <span class="tag">Android · 免 root · 陸版修復</span>
+    <h1>Google 地圖麥克風修復</h1>
+    <p>陸版 vivo／小米 的 Google 地圖按麥克風「圖示不跳」或「無法辨識」？一步步修好。此功能內建在「免Root百寶箱」裡，開源、免費、無廣告。</p>
+    <a class="cta" href="https://github.com/steve19860004/android-enhancer-tw/releases/latest/download/AndroidEnhancerTW.apk" download>下載 免Root百寶箱 APK ↓<small>AndroidEnhancerTW.apk（永遠指向最新版）</small></a>
+    <p style="margin-top:14px;font-size:14px">功能位置：App 內 <b>「互動」分頁 → Google 地圖麥克風修復（一鍵引導）</b>。<a href="toolbox.html" style="color:var(--mint)">百寶箱完整介紹 →</a></p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section>
+    <h2><span class="n">★</span>為什麼陸版地圖不能語音？</h2>
+    <p>不是麥克風壞了，而是陸版 ROM 動了幾個關鍵元件。常見有四個原因，缺任何一個都會「按了沒反應」：</p>
+    <ul>
+      <li><b>缺「Google 語音服務」</b>（Speech Services by Google）：地圖語音真正綁的辨識元件，陸版常被移除。</li>
+      <li><b>系統預設語音辨識被換成陸版的</b>（藍心／訊飛等）：地圖走的是系統預設辨識，指向錯了就失靈。</li>
+      <li><b>語言包沒下載／語音輸入沒選 Google</b>：這是最多人「裝了卻講了沒反應」的主因。</li>
+      <li><b>麥克風 appops 被關</b>：權限頁顯示「允許」，但系統偷偷回傳靜音，收不到音。</li>
+    </ul>
+    <div class="tip"><b>這工具做什麼：</b>能自動的（給麥克風權限、切回 Google 辨識）用 Shizuku 一鍵做掉；不能自動的（裝 App、下載語言包，Google 鎖死無法代勞）一鍵帶你跳到該頁。</div>
+  </section>
+
+  <section>
+    <h2><span class="n">1</span>一鍵引導步驟</h2>
+    <p>打開 App →「互動」分頁 → 這張卡片。最上面會<b>自動檢查</b>缺什麼（顯示 ✓／✗），照 ①→⑤ 做，有 ✗ 的先處理。</p>
+    <ol>
+      <li><span class="step">① 安裝必備 App</span>（狀態顯示 ✗ 才要按）：點「安裝 Google 語音服務」（關鍵缺件）、必要時「安裝 Google App」（辨識引擎），會自動跳 Play 商店。<b>裝完回來按「重新檢查狀態」。</b></li>
+      <li><span class="step">② 一鍵開麥克風權限</span>（需 Shizuku）：按「一鍵給 語音服務／Google／地圖 麥克風」，用 Shizuku 把三者的麥克風權限一次開到底。</li>
+      <li><span class="step">③ 切回 Google 語音辨識</span>（需 Shizuku）：若 Gboard 語音正常、只有地圖不行，按「切回 Google 語音辨識」。隨時可按「還原」回原本的。</li>
+      <li><span class="step">④ 下載語言包／設語音輸入</span>（手動，一鍵帶你去）：按「開啟語音輸入設定」選 <b>Google</b>；按「開啟 Google 語音服務」進去<b>下載你的語言</b>（例如中文／國語）。<b>這步最容易被漏掉。</b></li>
+      <li><span class="step">⑤ 測試</span>：按「開啟 Google 地圖來測試」，按麥克風講一句，圖示會跳動＝修好了。</li>
+    </ol>
+    <div class="note"><b>關於 Shizuku：</b>②③ 需要先啟動 Shizuku（免 root、免電腦，用無線偵錯即可，見<a href="toolbox.html">百寶箱教學</a>）。①④ 不需要 Shizuku。</div>
+  </section>
+
+  <section>
+    <h2><span class="n">?</span>還是不行？照這個順序查</h2>
+    <details>
+      <summary>收音畫面有跳、但講了沒反應？</summary>
+      <p>這是<b>最常見</b>的情況，九成是第 <b>④</b> 步沒做：到「語音輸入設定」確認選的是 <b>Google</b>，並進「Google 語音服務」<b>下載你的語言包</b>。手機要連著網路，講話用對應語言（國語）。</p>
+    </details>
+    <details>
+      <summary>連收音畫面都不跳？</summary>
+      <p>代表麥克風根本沒通：先確認第 <b>①</b> 步「Google 語音服務」已安裝，再做第 <b>②</b> 步一鍵開麥克風權限（需 Shizuku）。</p>
+    </details>
+    <details>
+      <summary>Gboard 語音正常，只有地圖不行？</summary>
+      <p>系統預設辨識被指到陸版引擎了。做第 <b>③</b> 步「切回 Google 語音辨識」即可。</p>
+    </details>
+    <details>
+      <summary>以上都做了還是不行？</summary>
+      <p>①手機連網後<b>重開機</b>再試一次。②必要時加裝「<b>Android Auto</b>」補底層語音元件。③部分機型 vivo／小米要另到「設定 → 自啟動」把 Google 相關 App 放行。</p>
+    </details>
+    <details>
+      <summary>沒有 Shizuku 可以修嗎？</summary>
+      <p>①④（裝 App、下載語言包、設語音輸入）不需要 Shizuku，自己做就能解決大部分情況。只有②給麥克風權限、③切回辨識需要 Shizuku。</p>
+    </details>
+  </section>
+
+  <section>
+    <h2><span class="n">♥</span>隱私與授權</h2>
+    <ul>
+      <li>全程只動「語音辨識設定」與相關 App 的麥克風權限，<b>不碰你的個資或聊天內容</b>，切換辨識引擎可還原。</li>
+      <li>內建於<b>免Root百寶箱</b>，開源 <b>GPLv3</b>、免費、無廣告。<a href="https://github.com/steve19860004/android-enhancer-tw">GitHub 原始碼</a></li>
+    </ul>
+  </section>
+
+</main>
+
+<footer>
+  免Root百寶箱 · Google 地圖麥克風修復 · 免 root · 開源 GPLv3<br>
+  <a href="https://github.com/steve19860004/android-enhancer-tw">GitHub 原始碼</a>
+</footer>
+
+</body>
+</html>
