@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>畫面 AI 助手｜按一下讓 AI 看懂手機畫面 教學與下載</title>
+<style>
+  *{box-sizing:border-box}
+  :root{--bg:#f6f8f6;--ink:#15332e;--brand:#143e39;--brand2:#1c5a4f;--mint:#bff0ce;--line:#d4ded6;--soft:#eef3ee;--warn:#8a5a00;--warnbg:#fff6e2;--blue:#1c4e8a;--bluebg:#e8f0fb;--red:#9a2b2b;--redbg:#fbecec}
+  body{margin:0;color:var(--ink);background:var(--bg);font:16px/1.75 "Noto Sans TC",system-ui,-apple-system,sans-serif}
+  a{color:var(--brand2)}
+  header{background:var(--brand);color:#fff;border-bottom:6px solid var(--mint)}
+  .wrap{max-width:820px;margin:auto;padding:26px 22px}
+  header .wrap{padding:44px 22px}
+  .tag{display:inline-block;font-size:13px;letter-spacing:.08em;color:#bdeccc;border:1px solid #2d6a5d;border-radius:999px;padding:3px 12px;margin-bottom:14px}
+  h1{font-size:clamp(30px,6.5vw,48px);line-height:1.12;margin:.1em 0 .3em}
+  header p{color:#dcebe0;margin:.4em 0 1.4em}
+  .cta{display:inline-block;background:var(--mint);color:#0f2f29;font-weight:700;text-decoration:none;padding:13px 26px;border-radius:10px;font-size:18px}
+  .cta:hover{background:#a6e6ba}
+  .cta small{display:block;font-weight:400;font-size:12px;color:#2b5a4f}
+  section{border-bottom:1px solid var(--line);padding:10px 0 26px}
+  h2{font-size:22px;margin:1.3em 0 .4em;display:flex;align-items:center;gap:10px}
+  h2 .n{flex:0 0 auto;width:30px;height:30px;border-radius:50%;background:var(--brand);color:#fff;font-size:15px;display:grid;place-items:center}
+  ol,ul{padding-left:1.4em}
+  li{margin:.5em 0}
+  code{background:var(--soft);padding:2px 7px;border-radius:5px;font-size:13.5px;border:1px solid var(--line);word-break:break-all}
+  .note{background:var(--warnbg);border:1px solid #f0d99a;border-left:4px solid #e3a93b;border-radius:8px;padding:14px 16px;margin:16px 0;font-size:15px}
+  .note b{color:var(--warn)}
+  .tip{background:var(--bluebg);border:1px solid #bcd4f2;border-left:4px solid #3a7bd5;border-radius:8px;padding:14px 16px;margin:16px 0;font-size:15px}
+  .tip b{color:var(--blue)}
+  .danger{background:var(--redbg);border:1px solid #e9b8b8;border-left:4px solid #c0504d;border-radius:8px;padding:14px 16px;margin:16px 0;font-size:15px}
+  .danger b{color:var(--red)}
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:15px}
+  th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+  th{background:var(--soft)}
+  td:first-child{white-space:nowrap;font-weight:600}
+  details{border-top:1px solid var(--line);padding:4px 0}
+  details:first-of-type{border-top:0}
+  summary{cursor:pointer;font-weight:600;padding:10px 0}
+  footer{color:#5a6b63;font-size:14px;text-align:center;padding:30px 22px 50px}
+  .back{display:inline-block;margin-bottom:10px;color:#bdeccc;text-decoration:none;font-size:14px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="back" href="index.html">← 回首頁</a>
+    <span class="tag">Android · 免 root · AI 看圖回答</span>
+    <h1>畫面 AI 助手</h1>
+    <p>螢幕上一顆「AI」懸浮按鈕，不管在哪個 App，按一下就截取目前畫面交給 AI 看圖回答：這是什麼、幫我翻譯、幫我總結、有沒有錯、下一步怎麼做，還可以接著追問。免 root。</p>
+    <a class="cta" href="https://github.com/steve19860004/screen-ai/releases/latest/download/ScreenAi.apk" download>下載 APK ↓<small>ScreenAi.apk（永遠指向最新版）</small></a>
+    <p style="margin-top:14px;font-size:14px"><a href="https://github.com/steve19860004/screen-ai/releases/latest" style="color:var(--mint)">版本說明與歷史版本 →</a></p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section>
+    <h2><span class="n">★</span>運作方式</h2>
+    <ol>
+      <li>App 用 Android 內建的「<b>螢幕擷取</b>」功能（和錄螢幕同一套），在背景待命。</li>
+      <li>你按「AI」懸浮鈕時，它會先把自己藏起來、截下目前畫面。</li>
+      <li>截圖交給你設定的 AI（Google Gemini 或 OpenAI 相容）看圖回答，答案顯示在下方面板。</li>
+      <li>可以直接打字追問，或點快捷提問（翻譯成繁體中文、幫我總結、這是什麼、有沒有錯誤或風險、幫我擬回覆、下一步怎麼做）。</li>
+    </ol>
+    <div class="tip"><b>免 root：</b>不需要 Shizuku，也不需要無障礙權限；只要「懸浮窗」權限＋每次啟動時同意「分享螢幕」。</div>
+  </section>
+
+  <section>
+    <h2><span class="n">1</span>安裝與設定</h2>
+    <ol>
+      <li>下載並安裝上方 <b>APK</b>，第一次開啟時允許通知。</li>
+      <li><b>① 懸浮窗權限</b>：按「前往開啟」→ 允許「畫面 AI 助手」顯示在其他應用程式上層。</li>
+      <li><b>② AI 設定</b>：到 <a href="https://aistudio.google.com/api-keys">aistudio.google.com</a> 免費取得 Gemini 金鑰貼上；<b>模型欄位留空</b>（預設 <code>gemini-3.8-flash</code>），按「測試 AI」確認。</li>
+      <li>按「<b>啟動懸浮按鈕</b>」，系統問「要分享螢幕嗎」時選「<b>整個畫面</b>」再按開始。</li>
+      <li>切到任何畫面 → 按「AI」懸浮鈕 → 幾秒後下方跳出回答。</li>
+    </ol>
+    <div class="tip"><b>懸浮鈕操作：</b>點一下＝分析目前畫面；拖曳＝移動位置（會記住）；長按＝關閉。回答面板按「✕」或返回鍵收起，按「重新截圖」分析新畫面。</div>
+  </section>
+
+  <section>
+    <h2><span class="n">2</span>可以拿來做什麼</h2>
+    <ul>
+      <li>看不懂的設定頁、錯誤訊息、帳單、說明書 → 「這是什麼／下一步怎麼做」。</li>
+      <li>外文網頁、App、商品標籤 → 「翻譯成繁體中文」。</li>
+      <li>長文章、群組對話、新聞 → 「幫我總結」。</li>
+      <li>客人傳來的訊息或照片 → 「幫我擬回覆」。</li>
+      <li>股票 K 線圖、財報截圖 → 直接問「這張圖怎麼看」。</li>
+    </ul>
+    <div class="note"><b>設定頁可自訂：</b>①「截圖後自動分析」開關（關掉＝先讓你輸入問題）②自動分析時問的問題 ③快捷提問按鈕 ④給 AI 的補充指示（例如：我是冷氣師傅，用師傅聽得懂的話回答）。</div>
+  </section>
+
+  <section>
+    <h2><span class="n">?</span>疑難排解</h2>
+    <details>
+      <summary>截到的畫面全黑、AI 說看不到？</summary>
+      <p>銀行、券商、密碼輸入、部分影音 App 是<b>受保護畫面</b>，Android 會擋所有截圖（包含本 App），這是系統限制，無法繞過。</p>
+    </details>
+    <details>
+      <summary>按懸浮鈕又跳出「分享螢幕」詢問？</summary>
+      <p>鎖屏、重開機或系統清理後，Android 會收回擷取權限，再同意一次即可（選「整個畫面」）。</p>
+    </details>
+    <details>
+      <summary>懸浮鈕不見了？</summary>
+      <p>陸版手機可能清掉背景服務。到 i 管家／手機管家把本 App 設「允許自啟動」「背景高耗電」，再打開 App 按「啟動懸浮按鈕」。</p>
+    </details>
+    <details>
+      <summary>出現「AI 額度用完了（429）」？</summary>
+      <p>Gemini 免費額度每天重置；模型請留空用預設 Flash。Google AI Pro 訂閱不含 API 額度，需要更多額度要在 AI Studio 為金鑰專案開啟 Billing。</p>
+    </details>
+    <details>
+      <summary>回答很慢？</summary>
+      <p>看圖比純文字慢，通常 5～20 秒，忙碌時更久，面板會顯示已等幾秒。</p>
+    </details>
+  </section>
+
+  <section>
+    <h2><span class="n">♥</span>隱私與授權</h2>
+    <ul>
+      <li>只有在你<b>按下懸浮鈕</b>時才截圖，截圖不存檔，只送到你自己設定的 AI 供應商分析。</li>
+      <li>API 金鑰只存在你手機本機。有個資或機密的畫面請斟酌再按。</li>
+      <li>免費、無廣告。<a href="https://github.com/steve19860004/screen-ai">GitHub 原始碼</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2><span class="n">◷</span>更新紀錄</h2>
+    <ul>
+      <li><b>build-1</b>（2026-11-28）：首版 — 懸浮鈕截圖、Gemini／OpenAI 相容看圖回答、追問與快捷提問、自動分析開關、自訂提問與補充指示。</li>
+    </ul>
+  </section>
+
+</main>
+
+<footer>
+  畫面 AI 助手 · 免 root<br>
+  <a href="https://github.com/steve19860004/screen-ai">GitHub 原始碼</a>
+</footer>
+
+</body>
+</html>
