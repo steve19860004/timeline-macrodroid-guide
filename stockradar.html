@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>股市情報雷達｜AI 台股情報＋K 線分析 教學與下載</title>
+<style>
+  *{box-sizing:border-box}
+  :root{--bg:#f6f8f6;--ink:#15332e;--brand:#143e39;--brand2:#1c5a4f;--mint:#bff0ce;--line:#d4ded6;--soft:#eef3ee;--warn:#8a5a00;--warnbg:#fff6e2;--blue:#1c4e8a;--bluebg:#e8f0fb;--red:#9a2b2b;--redbg:#fbecec}
+  body{margin:0;color:var(--ink);background:var(--bg);font:16px/1.75 "Noto Sans TC",system-ui,-apple-system,sans-serif}
+  a{color:var(--brand2)}
+  header{background:var(--brand);color:#fff;border-bottom:6px solid var(--mint)}
+  .wrap{max-width:820px;margin:auto;padding:26px 22px}
+  header .wrap{padding:44px 22px}
+  .tag{display:inline-block;font-size:13px;letter-spacing:.08em;color:#bdeccc;border:1px solid #2d6a5d;border-radius:999px;padding:3px 12px;margin-bottom:14px}
+  h1{font-size:clamp(30px,6.5vw,48px);line-height:1.12;margin:.1em 0 .3em}
+  header p{color:#dcebe0;margin:.4em 0 1.4em}
+  .cta{display:inline-block;background:var(--mint);color:#0f2f29;font-weight:700;text-decoration:none;padding:13px 26px;border-radius:10px;font-size:18px}
+  .cta:hover{background:#a6e6ba}
+  .cta small{display:block;font-weight:400;font-size:12px;color:#2b5a4f}
+  section{border-bottom:1px solid var(--line);padding:10px 0 26px}
+  h2{font-size:22px;margin:1.3em 0 .4em;display:flex;align-items:center;gap:10px}
+  h2 .n{flex:0 0 auto;width:30px;height:30px;border-radius:50%;background:var(--brand);color:#fff;font-size:15px;display:grid;place-items:center}
+  ol,ul{padding-left:1.4em}
+  li{margin:.5em 0}
+  code{background:var(--soft);padding:2px 7px;border-radius:5px;font-size:13.5px;border:1px solid var(--line);word-break:break-all}
+  .note{background:var(--warnbg);border:1px solid #f0d99a;border-left:4px solid #e3a93b;border-radius:8px;padding:14px 16px;margin:16px 0;font-size:15px}
+  .note b{color:var(--warn)}
+  .tip{background:var(--bluebg);border:1px solid #bcd4f2;border-left:4px solid #3a7bd5;border-radius:8px;padding:14px 16px;margin:16px 0;font-size:15px}
+  .tip b{color:var(--blue)}
+  .danger{background:var(--redbg);border:1px solid #e9b8b8;border-left:4px solid #c0504d;border-radius:8px;padding:14px 16px;margin:16px 0;font-size:15px}
+  .danger b{color:var(--red)}
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:15px}
+  th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+  th{background:var(--soft)}
+  td:first-child{white-space:nowrap;font-weight:600}
+  details{border-top:1px solid var(--line);padding:4px 0}
+  details:first-of-type{border-top:0}
+  summary{cursor:pointer;font-weight:600;padding:10px 0}
+  footer{color:#5a6b63;font-size:14px;text-align:center;padding:30px 22px 50px}
+  .back{display:inline-block;margin-bottom:10px;color:#bdeccc;text-decoration:none;font-size:14px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="back" href="index.html">← 回首頁</a>
+    <span class="tag">Android · 免 root · AI 台股情報</span>
+    <h1>股市情報雷達</h1>
+    <p>自動抓公開資訊觀測站重大訊息、財經新聞、國際產業動態、三大法人與月營收，AI 篩選、摘要、交叉查證；再結合 K 線技術分析，一鍵評估「現在適不適合買」。自選股有重大消息就推播。</p>
+    <a class="cta" href="https://github.com/steve19860004/stock-radar/releases/latest/download/StockRadar.apk" download>下載 APK ↓<small>StockRadar.apk（永遠指向最新版）</small></a>
+    <p style="margin-top:14px;font-size:14px"><a href="https://github.com/steve19860004/stock-radar/releases/latest" style="color:var(--mint)">版本說明與歷史版本 →</a></p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="note"><b>⚠️ 目前為測試簽章版本：</b>每一版都<b>無法直接覆蓋更新</b>，請先<b>移除舊版</b>再安裝新版（自選股與 AI 金鑰要重新輸入）。改成正式簽章後會在這裡公告，之後就能直接覆蓋。</div>
+
+  <section>
+    <h2><span class="n">★</span>運作方式</h2>
+    <ol>
+      <li><b>蒐集</b>：背景定時抓官方重大訊息（上市＋上櫃）、鉅亨網／Google 新聞（含每檔自選股的專屬新聞）、英文國際新聞、三大法人買賣超、月營收。</li>
+      <li><b>過濾</b>：封鎖論壇、爆料社團等雜訊來源；同一件事多家報導<b>合併成一則</b>。</li>
+      <li><b>AI 分析</b>：每則給 重要度（高／中／低）、分類、40 字重點、利多／利空，並判斷是不是傳聞；英文新聞翻成中文並標出受影響的台灣供應鏈。</li>
+      <li><b>查證標籤</b>：<b>官方</b>＝官方資料；<b>已確認</b>＝有公司重訊佐證；<b>多方報導</b>＝兩家以上媒體；<b>未證實</b>＝單一來源。</li>
+      <li><b>推播</b>：自選股依你設的門檻通知，全市場「高」重要度也通知，夜間靜音。</li>
+    </ol>
+    <div class="tip"><b>免 root、免伺服器：</b>資料存在你手機裡，AI 用你自己的 Gemini 金鑰（可免費申請）。沒填金鑰也能用，只是改用關鍵字規則評分。</div>
+  </section>
+
+  <section>
+    <h2><span class="n">1</span>安裝與設定</h2>
+    <ol>
+      <li>下載並安裝上方 <b>APK</b>，第一次開啟時<b>允許通知</b>。</li>
+      <li><b>設定 AI（設定 → ①）</b>：
+        <ul>
+          <li>到 <a href="https://aistudio.google.com/api-keys">aistudio.google.com</a> 免費取得 API 金鑰，貼進「API 金鑰」。</li>
+          <li><b>模型欄位留空</b>（預設 <code>gemini-3.8-flash</code>）。不要填 Pro／Argon 等高階模型，免費額度可能是 0，會一直出現 429。</li>
+          <li>按「測試 AI」，跳出一句中文回答就成功。</li>
+        </ul>
+      </li>
+      <li><b>背景穩定（設定 → ③）</b>：按「排除電池最佳化」。vivo／iQOO 再到 <b>i 管家 → 應用管理 → 股市情報雷達</b> 開「允許自啟動」「背景高耗電」；小米到手機管家把自啟動打開、省電策略設「無限制」。</li>
+      <li><b>自選股</b>分頁輸入代號或名稱（例：<code>2330</code> 或 <code>台積電</code>）加入。</li>
+      <li>回<b>情報</b>分頁按右上角「<b>更新</b>」，第一次會抓比較久。</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2><span class="n">2</span>K 線分析＋「適不適合買」</h2>
+    <p>在自選股按「<b>K線分析</b>」（或情報詳細頁的相關個股按「K線」）進入個股頁：</p>
+    <ul>
+      <li><b>K 線圖</b>：日 K＋均線 MA5／10／20／60＋成交量，下方副圖切換 <b>KD／MACD／RSI</b>；可選 3 個月／6 個月／1 年，左右滑動看更早，點一下顯示當日開高低收與量。</li>
+      <li><b>綜合評估（規則計分）</b>：技術面（均線排列、黃金／死亡交叉、KD、MACD、RSI、爆量）＋消息面（利多利空，傳聞與未證實減半，同一事件只算一次），得出「偏多／中性觀望／偏空」，並列出每一分的理由與支撐、壓力。</li>
+      <li>先選「我目前：<b>沒有持有／已持有</b>」，再按「<b>AI 分析並評估</b>」一鍵完成：
+        <ol>
+          <li>AI 先分析這檔還沒看過的新聞（利多利空、是否證實）</li>
+          <li>再結合技術面給結論</li>
+        </ol>
+      </li>
+    </ul>
+    <table>
+      <tr><th>項目</th><th>內容</th></tr>
+      <tr><td>結論</td><td>未持有：適合買進／可分批布局／等回檔再買／觀望／不建議買進<br>已持有：可加碼／續抱／續抱但設好停損／建議減碼／建議出場</td></tr>
+      <tr><td>信心與週期</td><td>高／中／低；短線、波段或中長線</td></tr>
+      <tr><td>關鍵價位</td><td>買進區間、停損價（跌破代表看法錯了）、第一目標價，並算出報酬／風險比（低於 1.5 倍會標「不划算」）</td></tr>
+      <tr><td>判讀</td><td>技術面判讀、消息面判讀、支持理由、風險、什麼情況結論會改變</td></tr>
+    </table>
+    <div class="danger"><b>注意：</b>技術指標與 AI 判斷都可能出錯，盤整時 KD 常常假交叉。結論只供參考、<b>不構成投資建議</b>；進場前先想好停損，跌破就走。</div>
+  </section>
+
+  <section>
+    <h2><span class="n">＋</span>其他功能</h2>
+    <ul>
+      <li><b>每日 AI 簡報</b>：每天早上自動整理今日重點、自選股逐檔、產業與國際、籌碼營收、待查證、明日觀察，並推播。也可在「AI 簡報」分頁手動產生。</li>
+      <li><b>單則 AI 深入分析</b>：情報詳細頁可讓 AI 分析事件影響、利多利空、可信度與後續觀察重點。</li>
+      <li><b>自選股即時報價</b>：紅漲綠跌，並直接顯示每檔的綜合評估與支撐／壓力。</li>
+      <li><b>封鎖來源</b>：設定 → ② 可編輯封鎖清單；情報詳細頁也能一鍵「封鎖這個來源」。</li>
+      <li><b>智慧排程</b>：可選 15／30／60 分鐘。平日 07:00～24:00 照設定頻率，深夜與週末自動放慢到約 90 分鐘一次。</li>
+      <li><b>省額度模式（預設開）</b>：背景只把自選股相關、官方重訊、營收籌碼送 AI；一般與國際新聞等你按「AI 分析並評估」時才補。可設背景每天 AI 上限（20／40／80／不限），遇到額度不足自動暫停 1 小時，設定頁會顯示今日用量。</li>
+      <li><b>AI 等待不卡住</b>：分析時顯示已等幾秒與目前步驟，點進度文字可取消，最久等 5 分鐘。</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2><span class="n">?</span>疑難排解</h2>
+    <details>
+      <summary>出現「AI 額度用完了（429）」？</summary>
+      <p>Gemini 免費額度<b>每天重置</b>。請確認模型欄位<b>留空</b>（用預設 Flash），並開著「省額度模式」。需要更多額度，到 AI Studio 為這把金鑰所屬的專案開啟 <b>Billing（付費）</b>。</p>
+    </details>
+    <details>
+      <summary>我有訂閱 Google AI Pro，為什麼還是額度不足？</summary>
+      <p>Google AI Pro 的好處只適用在 <b>Gemini App 和 AI Studio 網頁</b>；透過 API 金鑰使用（例如本 App）是<b>另外計費</b>。開啟 Cloud Billing 後，訂閱者可從 Google Developer Program 領每月雲端額度抵用 API 費用。</p>
+    </details>
+    <details>
+      <summary>按了 AI 分析很久沒反應？</summary>
+      <p>AI 要讀技術數據和整串新聞，忙碌時可能要 1～2 分鐘，畫面會顯示已等幾秒。超過 5 分鐘會自動停止並說明原因（多半是忙線或額度用完）；點進度文字可取消。</p>
+    </details>
+    <details>
+      <summary>消息面一直顯示「沒有明確利多或利空」？</summary>
+      <p>代表這檔的新聞還沒被 AI 分析（只有關鍵字評分，沒有利多利空判斷）。到個股頁按「AI 分析並評估」會先補分析新聞，再重新計分。</p>
+    </details>
+    <details>
+      <summary>背景沒有更新、收不到推播？</summary>
+      <p>陸版手機會殺背景。請做完「安裝與設定」第 3 步（排除電池最佳化＋自啟動＋背景高耗電），並確認通知權限有開。「設定 → ④ 狀態與資料」可看上次更新時間與各來源抓到幾則。</p>
+    </details>
+    <details>
+      <summary>某檔顯示「股價載入失敗」？</summary>
+      <p>日 K 從 Yahoo 股價抓，上市股失敗時改抓證交所。網路不穩時按「重新下載股價」重試；持續失敗請截圖回報。</p>
+    </details>
+    <details>
+      <summary>更新時說「無法安裝」？</summary>
+      <p>目前是測試簽章，每版簽章不同，必須先移除舊版再裝。</p>
+    </details>
+  </section>
+
+  <section>
+    <h2><span class="n">♥</span>隱私與授權</h2>
+    <ul>
+      <li>App 只在本機運行；<b>API 金鑰、自選股、情報都只存你手機本機</b>。</li>
+      <li>需要 AI 分析時，情報標題與摘要會送到你自己設定的 AI 供應商（如 Google Gemini）。</li>
+      <li>資料來源：公開資訊觀測站、臺灣證券交易所／櫃買中心 OpenAPI、證交所 MIS 報價、Yahoo 股價、鉅亨網、Google 新聞。</li>
+      <li>免費、無廣告。<a href="https://github.com/steve19860004/stock-radar">GitHub 原始碼</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2><span class="n">◷</span>更新紀錄</h2>
+    <ul>
+      <li><b>build-6</b>（2026-11-28）：<b>省額度模式</b> — 背景只分析自選股、官方重訊與營收籌碼；每日背景 AI 上限；遇到 429 自動暫停 1 小時；設定頁顯示今日用量。</li>
+      <li><b>build-5</b>（2026-11-28）：「AI 分析並評估」合併成<b>一個按鈕</b>，結果加入技術面與消息面判讀；等待時間放寬到 5 分鐘並顯示步驟進度。</li>
+      <li><b>build-4</b>（2026-11-28）：新增「<b>現在適不適合買／續抱或減碼</b>」評估：結論、買進區間、停損、目標價、報酬風險比。</li>
+      <li><b>build-3</b>（2026-11-28）：AI 等待計時與取消、封鎖雜訊來源、重複新聞合併（省 AI 額度）。</li>
+      <li><b>build-2</b>（2026-11-28）：<b>K 線技術分析</b>（均線、量、KD、MACD、RSI）、技術＋消息綜合評分、預設 Gemini Flash、智慧排程。</li>
+      <li><b>build-1</b>（2026-11-28）：首版 — 官方重訊、台灣／國際新聞、法人與月營收、AI 分析與查證標籤、自選股推播、每日 AI 簡報。</li>
+    </ul>
+  </section>
+
+</main>
+
+<footer>
+  股市情報雷達 · 免 root · 僅整理公開資訊，不構成投資建議<br>
+  <a href="https://github.com/steve19860004/stock-radar">GitHub 原始碼</a>
+</footer>
+
+</body>
+</html>
